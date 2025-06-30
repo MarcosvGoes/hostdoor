@@ -94,7 +94,7 @@ export default function MobileNav() {
               </AccordionTrigger>
               <AccordionContent className="mx-3 mt-2 pb-0">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
-                  <a href="https://dommi-rent.vercel.app" target="_blank" onClick={() => setIsOpen(false)}>
+                  <a href="https://app-dommi.vercel.app" target="_blank" onClick={() => setIsOpen(false)}>
                     Cadastre seu imóvel
                   </a>
                 </Button>
@@ -136,7 +136,7 @@ export default function MobileNav() {
               onClick={() => setIsOpen(false)}
             >
               <a
-                href="https://dommi-rent.vercel.app"
+                href="https://app-dommi.vercel.app"
                 target="_blank"
                 className="text-foreground font-semibold text-sm"
               >
