@@ -2,102 +2,40 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="pt-16 bg-background-white">
+      <section className="lg:grid lg:grid-cols-2 lg:items-center lg:max-w-[70%] lg:mx-auto lg:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl mt-16 lg:border-2 lg:border-background-blue">
+        <div className="w-full max-w-[90%] mx-auto">
+          <h1 className="text-xl lg:text-3xl text-darkText font-bold text-center mt-10">Simples, <br /> confiável e segura,<br /> para quem busca praticidade</h1>
+          <p className="text-sm lg:text-base text-darkText text-center mt-2">Automatize cobranças, contratos e gerencie aluguéis sem dor de cabeça</p>
+          <a target="_blank" rel="noopener noreferrer" href='https://www.app.imobilli.com'>Cadastrar</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        <Image className="rounded-xl lg:bg-background-blue" src='/assets/homeone.png' layout="" width={1800} height={1800} alt="Troca de chaves por imóvel" />
+      </section>
+      <section className="my-20 max-w-[90%] lg:w-[400px] mx-auto shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-white rounded-xl py-10">
+          <h1 className="text-xl mb-5 font-bold text-darkText text-center mx-auto max-w-[90%]">Busca facilitar a gestão do seu imóvel ?<br />Conte com a Imobilli</h1>
+          <ul className="text-darkText grid max-w-[90%] p-2 mx-auto font-bold rounded-lg gap-y-3">
+            <li className="flex items-center gap-x-2 text-md"> Cobranças automática</li>
+            <li className="flex items-center gap-x-2 text-md"> Geração de contrato digital</li>
+            <li className="flex items-center gap-x-2 text-md"> Assinatura digital</li>
+            <li className="flex items-center gap-x-2 text-md"> Variedade de pagamentos</li>
+            <li className="flex items-center gap-x-2 text-md"> Suporte completo</li>
+            <li className="flex items-center gap-x-2 text-md"> Maior visibilidade</li>
+            <li className="flex items-center gap-x-2 text-md"> Menor burocracia</li>
+            <li className="flex items-center gap-x-2 text-md"> Repasse instantanêo</li>
+          </ul>
+      </section>
+      <section className="bg-background-blue text-whiteText py-14">
+        <div className="max-w-[90%] mx-auto">
+          <h1 className="text-2xl mb-14 font-bold text-white text-center">Cobrança automatizada e repasse instantâneo</h1>
+          <ul className="text-center text-md grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 text-darkText">
+            <li className="bg-background-white p-5 rounded-lg h-full flex flex-col justify-center">Reduza a taxa de inadimplência com as cobranças automáticas. Venceu o aluguel ? O valor é cobrado imediatamente</li>
+            <li className="bg-background-white p-5 rounded-lg h-full flex flex-col justify-center">Escolha a data de vencimento padrão para as cobranças serem realizadas</li>
+            <li className="bg-background-white p-5 rounded-lg h-full flex flex-col justify-center">Tenha o repasse realizado para sua conta em poucos minutos</li>
+            <li className="bg-background-white p-5 rounded-lg h-full flex flex-col justify-center">Dê mais opções de pagamento para seu inquilino, diminuindo ainda mais a chance de inadimplência</li>
+            <li className="bg-background-white p-5 rounded-lg h-full flex flex-col justify-center">Suporte a pagamentos via PIX, Cartão de Crédito, Cartão de Débito, Carteiras Digitais, Boleto, dentre outros.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  )
 }

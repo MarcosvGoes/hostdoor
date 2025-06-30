@@ -1,0 +1,170 @@
+/* eslint-disable react/no-unescaped-entities */
+export default function TermsAndConditions() {
+    return (
+        <main className="mb-10 mt-16">
+            <section className="max-w-4xl mx-auto p-6 text-sm">
+                <div className="mb-10 mt-4 grid gap-2">
+                    <strong className="text-foreground text-base font-semibold">Termos e condições da plataforma e serviços Keyflow</strong>
+                    <span>Última alteração: {'22/03/2025'}</span>
+                </div>
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">1. Introdução</h2>
+                    <p className=" mb-4">
+                        Estes Termos de Uso ("Termos") regulam o acesso e a utilização da plataforma <strong className="text-foreground">Keyflow</strong> ("Plataforma"), que oferece serviços de intermediação de aluguéis de imóveis. A Keyflow é uma plataforma digital que conecta proprietários de imóveis ("Proprietários") a potenciais inquilinos ("Inquilinos"), facilitando a gestão de contratos de locação, pagamentos e outras funcionalidades relacionadas.
+                    </p>
+                    <p className=" mb-4">
+                        Ao acessar ou utilizar a Plataforma, você concorda expressamente com estes Termos. Caso não concorde, não poderá utilizar os serviços da Keyflow. A Keyflow reserva-se o direito de alterar estes Termos a qualquer momento, e o uso contínuo da Plataforma após tais alterações constitui aceitação dos Termos atualizados.
+                    </p>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">2. Definições</h2>
+                    <ul className="space-y-2  list-none">
+                        <li><strong className="text-foreground font-semibold">Keyflow</strong>: Plataforma digital que intermedia aluguéis de imóveis.</li>
+                        <li><strong className="text-foreground font-semibold">Proprietário</strong>: Pessoa física ou jurídica que cadastra um imóvel na Plataforma para locação.</li>
+                        <li><strong className="text-foreground font-semibold">Inquilino</strong>: Pessoa física ou jurídica interessada em alugar um imóvel cadastrado na Plataforma.</li>
+                        <li><strong className="text-foreground font-semibold">Contrato de Locação</strong>: Acordo firmado entre Proprietário e Inquilino, intermediado pela Keyflow.</li>
+                        <li><strong className="text-foreground font-semibold">Pagamento Automatizado</strong>: Sistema de cobrança e repasse de valores relacionados ao aluguel, gerenciado pela Keyflow.</li>
+                        <li><strong className="text-foreground font-semibold">Caução</strong>: Valor adicional pago pelo Inquilino como garantia, conforme estipulado pelo Proprietário.</li>
+                    </ul>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">3. Funcionalidades da Plataforma</h2>
+                    <p className="text-foreground mb-4">
+                        A Keyflow oferece os seguintes serviços:
+                    </p>
+                    <ol className=" list-none">
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Cadastro de Imóveis</strong>:
+                            <ul className="space-y-1 list-none ml-1">
+                                <li>O Proprietário pode cadastrar imóveis na Plataforma, fornecendo informações detalhadas (localização, valor do aluguel, fotos, etc.).</li>
+                                <li>O Proprietário é responsável pela veracidade das informações fornecidas.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Compartilhamento de Imóveis</strong>:
+                            <ul className="space-y-2 list-none ml-1">
+                                <li>O Proprietário pode compartilhar o anúncio do imóvel com potenciais Inquilinos.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Assinatura Digital</strong>:
+                            <ul className="space-y-2 list-none ml-1">
+                                <li>O Contrato de Locação pode ser assinado digitalmente por ambas as partes.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Pagamento Automatizado</strong>:
+                            <ul className="space-y-2 list-none ml-1">
+                                <li>A Keyflow gerencia os pagamentos do aluguel, cobrando o Inquilino e repassando o valor ao Proprietário em até <strong className="text-foreground font-semibold">1 dia útil</strong>.</li>
+                                <li>O Proprietário pode optar por cobrar até <strong className="text-foreground font-semibold">3 cauções</strong>, cada uma equivalente ao valor de um aluguel.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Personalização do Contrato</strong>:
+                            <ul className="space-y-2 list-none ml-1">
+                                <li>O Proprietário pode definir:
+                                    <ul className="space-y-1 list-none">
+                                        <li>Prazo mínimo de contrato.</li>
+                                        <li>Repasse do IPTU ao Inquilino (opcional).</li>
+                                        <li>Diferentes valores de aluguel conforme a forma de pagamento escolhida pelo Inquilino (ex.: desconto para pagamento à vista).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">4. Responsabilidades</h2>
+                    <ol className="list-none">
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Do Proprietário</strong>:
+                            <ul className="space-y-1 list-none ml-1">
+                                <li>Garantir a veracidade das informações do imóvel cadastrado.</li>
+                                <li>Cumprir as obrigações previstas no Contrato de Locação.</li>
+                                <li>Autorizar a Keyflow a intermediar pagamentos e repasses.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Do Inquilino</strong>:
+                            <ul className="space-y-1 list-none ml-1">
+                                <li>Pagar o aluguel e eventuais cauções dentro dos prazos estipulados.</li>
+                                <li>Cumprir as cláusulas do Contrato de Locação.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Da Keyflow</strong>:
+                            <ul className="space-y-1 list-none ml-1">
+                                <li>Intermediar a relação entre Proprietário e Inquilino.</li>
+                                <li>Gerenciar pagamentos e repasses de forma segura e eficiente.</li>
+                                <li>Não se responsabiliza por disputas entre Proprietário e Inquilino após a assinatura do Contrato de Locação.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">5. Taxas e Comissões</h2>
+                    <ul className="space-y-2 list-none">
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Taxa de Intermediação</strong>:
+                            <ul className="space-y-2 list-none ml-1">
+                                <li>A Keyflow cobra uma taxa de intermediação sobre cada transação realizada na Plataforma. O valor será informado no momento da contratação.</li>
+                            </ul>
+                        </li>
+                        <li className="mb-2">
+                            <strong className="text-foreground font-semibold">Repasses</strong>:
+                            <ul className="space-y-2 list-none ml-1">
+                                <li>Os valores recebidos dos Inquilinos serão repassados aos Proprietários em até <strong className="text-foreground">1 dia útil</strong>, descontadas as taxas aplicáveis.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">6. Privacidade e Proteção de Dados</h2>
+                    <p className=" mb-4">
+                        A Keyflow trata os dados pessoais dos Usuários em conformidade com a <strong className="text-foreground">Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>. Os dados coletados são utilizados exclusivamente para viabilizar os serviços da Plataforma e não serão compartilhados com terceiros sem consentimento prévio.
+                    </p>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">7. Propriedade Intelectual</h2>
+                    <ul className="space-y-2 list-none">
+                        <li className="mb-2">A Plataforma Keyflow, incluindo seu design, funcionalidades e conteúdo, é propriedade exclusiva da Keyflow.</li>
+                        <li className="mb-2">É proibida a reprodução, cópia ou uso indevido de qualquer elemento da Plataforma sem autorização prévia.</li>
+                    </ul>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">8. Rescisão e Suspensão</h2>
+                    <p className=" mb-4">
+                        A Keyflow reserva-se o direito de suspender ou encerrar contas de Usuários que:
+                    </p>
+                    <ul className="space-y-2 list-none">
+                        <li className="mb-2">Violarem estes Termos.</li>
+                        <li className="mb-2">Praticarem fraudes ou condutas ilícitas.</li>
+                        <li className="mb-2">Fornecerem informações falsas ou enganosas.</li>
+                    </ul>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">9. Disposições Gerais</h2>
+                    <ul className="space-y-2 list-none">
+                        <li className="mb-2">Estes Termos são regidos pelas leis brasileiras.</li>
+                        <li className="mb-2">Eventuais disputas serão resolvidas no foro da comarca onde a Keyflow está sediada.</li>
+                    </ul>
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">10. Aceitação</h2>
+                    <p className=" mb-4">
+                        Ao utilizar a Plataforma Keyflow, você declara estar ciente e de acordo com todos os termos e condições aqui descritos.
+                    </p>
+                </div>
+            </section>
+        </main>
+    )
+}
