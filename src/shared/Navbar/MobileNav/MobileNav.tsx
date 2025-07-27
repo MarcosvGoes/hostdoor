@@ -34,11 +34,11 @@ export default function MobileNav() {
 
         <DropdownMenuContent
           align="end"
-          className="w-[100vw] h-[100vh] border-none z-50 bg-background px-6 py-4 flex flex-col gap-4"
+          className="w-[100vw] h-[100vh] border-none z-50 bg-background px-6 py-4 flex flex-col gap-1"
         >
           <hr className="w-full" />
 
-          <DropdownMenuItem className="py-0" asChild>
+          <DropdownMenuItem className="py-2" asChild>
             <Link href="/" className="text-base font-semibold pl-3" onClick={() => setIsOpen(false)}>
               Início
             </Link>
@@ -46,7 +46,7 @@ export default function MobileNav() {
 
           <hr className="border-dashed w-full" />
 
-          <DropdownMenuItem className="py-0" asChild>
+          <DropdownMenuItem className="py-2" asChild>
             <Link href="/solutions" className="text-base font-semibold pl-3" onClick={() => setIsOpen(false)}>
               Soluções
             </Link>
@@ -54,7 +54,7 @@ export default function MobileNav() {
 
           <hr className="border-dashed w-full" />
 
-          <DropdownMenuItem className="py-0" asChild>
+          <DropdownMenuItem className="py-2" asChild>
             <Link href="/pricing" className="text-base font-semibold pl-3" onClick={() => setIsOpen(false)}>
               Preços
             </Link>
@@ -64,7 +64,7 @@ export default function MobileNav() {
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="search" className="border-none">
-              <AccordionTrigger className="text-sm font-semibold pt-0 px-3 items-center">
+              <AccordionTrigger className="text-sm font-semibold pb-3 pt-2 px-3 items-center">
                 Estou buscando um imóvel
               </AccordionTrigger>
               <AccordionContent className="mx-3 -mt-2">
@@ -89,8 +89,8 @@ export default function MobileNav() {
             <hr className="border-dashed w-full" />
 
             <AccordionItem value="rent" className="border-none">
-              <AccordionTrigger className="text-sm font-semibold pb-0 px-3 items-center m-0">
-                Estou alugando um imóvel
+              <AccordionTrigger className="text-sm font-semibold pb-2 pt-3 px-3 items-center m-0">
+                Estou anunciando um imóvel
               </AccordionTrigger>
               <AccordionContent className="mx-3 mt-2 pb-0">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
@@ -114,7 +114,7 @@ export default function MobileNav() {
 
           <hr className="border-dashed w-full" />
 
-          <DropdownMenuItem className="py-0" asChild>
+          <DropdownMenuItem className="py-2" asChild>
             <Link href="/terms-and-conditions" className="text-base font-semibold pl-3" onClick={() => setIsOpen(false)}>
               Termos e condições
             </Link>
@@ -122,7 +122,7 @@ export default function MobileNav() {
 
           <hr className="border-dashed w-full" />
 
-          <DropdownMenuItem className="py-0" asChild>
+          <DropdownMenuItem className="py-2" asChild>
             <Link href="/help" className="text-base font-semibold pl-3" onClick={() => setIsOpen(false)}>
               Ajuda
             </Link>
