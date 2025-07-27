@@ -140,7 +140,7 @@ export default function MobileNav() {
                 target="_blank"
                 className="text-foreground font-semibold text-sm"
               >
-                Login / Cadastrar
+                Entrar
               </a>
               <ChevronRight color="var(--foreground)" strokeWidth="3" />
             </Button>
