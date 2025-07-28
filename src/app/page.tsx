@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="pt-16 bg-background-white">
+    <main className="bg-background-white">
       <section className="lg:grid lg:grid-cols-2 lg:items-center lg:max-w-[70%] lg:mx-auto lg:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl mt-16 lg:border-2 lg:border-background-blue">
         <div className="w-full max-w-[90%] mx-auto">
           <h1 className="text-xl lg:text-3xl text-darkText font-bold text-center mt-10">Simples, <br /> confiável e segura,<br /> para quem busca praticidade</h1>

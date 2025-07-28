@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${merriweather.className} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
-        <main className="flex-1">
+        <main className="flex-1 mt-20 mb-10 lg:mt-32 max-w-[90%] mx-auto">
         {children}
         </main>
       </body>

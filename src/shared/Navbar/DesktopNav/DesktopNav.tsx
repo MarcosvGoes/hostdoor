@@ -18,32 +18,32 @@ export default function DesktopNav() {
         <Image src="/assets/logo.png" width={30} height={30} alt="Logo" />
       </Link>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
         <NavLink href="/solutions">Soluções</NavLink>
         <NavLink href="/pricing">Preços</NavLink>
 
         {/* Dropdown: Estou buscando um imóvel */}
         <DropdownMenu>
-          <DropdownMenuTrigger className="text-sm font-semibold flex items-center gap-1">
+          <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
             Estou buscando <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="mt-2 w-56">
+          <DropdownMenuContent className="mt-2 w-44 ">
             <DropdownItem href="/catalog">Catálogo de imóveis</DropdownItem>
-            <DropdownItem href="/guide">Guia do inquilino</DropdownItem>
+            <DropdownItem href="/guide/tenant-guide">Guia do inquilino</DropdownItem>
             <DropdownItem href="/help">Ajuda</DropdownItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
         {/* Dropdown: Estou anunciando um imóvel */}
         <DropdownMenu>
-          <DropdownMenuTrigger className="text-sm font-semibold flex items-center gap-1">
+          <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
             Estou anunciando <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="mt-2 w-56">
-            <DropdownItem external href="https://app-dommi.vercel.app">
+          <DropdownMenuContent className="mt-2 w-44 gap-2">
+            <DropdownItem external href="https://dommi-rent.vercel.app/property">
               Cadastre seu imóvel
             </DropdownItem>
-            <DropdownItem href="/guide">Guia do locador</DropdownItem>
+            <DropdownItem href="/guide/owner-guide">Guia do locador</DropdownItem>
             <DropdownItem href="/help">Ajuda</DropdownItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -54,7 +54,7 @@ export default function DesktopNav() {
         {/* Botão de login */}
         <Button
           variant="ghost"
-          className="rounded-full flex items-center gap-2 shadow-[0_1px_5px_var(--foreground)] px-4"
+          className="rounded-full cursor-pointer flex items-center gap-2 shadow-[0_1px_5px_var(--foreground)] px-4"
         >
           <a
             href="https://dommi-rent.vercel.app"
@@ -63,7 +63,7 @@ export default function DesktopNav() {
           >
             Entrar
           </a>
-          <ChevronRight strokeWidth="2.5" />
+          <ChevronRight strokeWidth="2" />
         </Button>
       </div>
     </nav>
