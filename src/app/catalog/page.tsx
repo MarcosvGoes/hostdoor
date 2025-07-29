@@ -2,13 +2,13 @@
 import Image from "next/image";
 
 async function getProperties() {
-  const res = await fetch("https://dommi-app.vercel.app/api/public/properties", {
-    next: { revalidate: 60 },
+  const res = await fetch("http://192.168.0.37:3000/api/public/properties", {
+    next: { revalidate: 0 },
   });
 
   if (!res.ok) {
-    const errorText = await res.text(); // captura texto de erro
-    throw new Error(`Erro na API: ${res.status} - ${errorText}`);
+    const text = await res.text();
+    throw new Error(`Erro na API: ${res.status} - ${text}`);
   }
 
   return res.json();
@@ -26,6 +26,7 @@ export default async function PropertiesCatalog() {
                     <Image height={50} width={50} src={property.images[0]} alt="Imagem" />
                 </div>
             ))}
+            teste
         </div>
     )
 }
