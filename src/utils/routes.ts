@@ -1,0 +1,1 @@
+export const AppDomain = "https://dommi-rent.vercel.app"

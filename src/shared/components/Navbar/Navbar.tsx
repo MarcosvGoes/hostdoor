@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full">
-      <div className="flex lg:hidden z-50">
+      <div className="flex lg:hidden">
         <MobileNav />
       </div>
 
