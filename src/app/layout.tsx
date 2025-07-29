@@ -4,6 +4,7 @@ import "../shared/styles/globals.css";
 import Navbar from "@/shared/components/Navbar/Navbar";
 import Footer from "@/shared/components/Footer/Footer";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "next-themes";
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -32,6 +33,12 @@ export default function RootLayout({
       <body
         className={`${merriweather.className} antialiased`}
       >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <Navbar />
         <main className="flex-1 mx-auto mt-16 lg:pt-24 lg:mt-0">
           {children}
@@ -53,6 +60,7 @@ export default function RootLayout({
             },
           }}
         />
+        </ThemeProvider>
       </body>
     </html>
   );
