@@ -14,8 +14,8 @@ export default function About() {
                     </div>
                     <div className="font-bold">
                         <span className="text-darkText">Na Keyflow</span>
-                        <h2 className="text-2xl">R$ 19,90/mês </h2>
-                        <p className="text-sm">+ 5% sobre transação </p>
+                        <h2 className="text-2xl">R$ 9,90/mês </h2>
+                        <p className="text-xs">+ 5% sobre transação </p>
                     </div>
                     <ul className="text-darkText grid font-bold rounded-lg gap-y-3">
                         <li className="flex items-center gap-x-2 text-md">Cobranças automática</li>

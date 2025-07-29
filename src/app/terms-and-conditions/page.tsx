@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 export default function TermsAndConditions() {
     return (
-        <main className="mb-10 mt-16">
+        <main>
             <section className="max-w-4xl mx-auto p-6 text-sm">
                 <div className="mb-10 mt-4 grid gap-2">
                     <strong className="text-foreground text-base font-semibold">Termos e condições da plataforma e serviços Keyflow</strong>

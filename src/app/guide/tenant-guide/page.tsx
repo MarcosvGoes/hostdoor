@@ -1,8 +1,8 @@
-export default function Guide() {
+export default function TenantGuide() {
     return (
         <main className="py-16">
             <div className="mt-10">
-                Guia
+                Guia do Inquilino
             </div>
         </main>
     )
