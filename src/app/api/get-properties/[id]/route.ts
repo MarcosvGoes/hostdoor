@@ -1,12 +1,16 @@
 import { AppDomain } from "@/utils/routes";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(req: NextRequest) {
+  const id = req.nextUrl.pathname.split("/").pop();
+
+  if (!id) {
+    return NextResponse.json({ error: "Missing ID param" }, { status: 400 });
+  }
 
   const baseUrl = process.env.NODE_ENV === "development"
     ? "http://localhost:3001"
-    : AppDomain
+    : AppDomain;
 
   const res = await fetch(`${baseUrl}/api/properties/${id}`, {
     headers: {
