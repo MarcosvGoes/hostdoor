@@ -14,9 +14,9 @@ import { Button } from "@/shared/components/Shadcn-ui/button";
 
 export default function DesktopNav() {
   return (
-    <nav className="fixed mt-5 left-0 right-0 mx-auto max-w-[80%] h-16 px-6 flex items-center justify-between rounded-full backdrop-blur-lg bg-background/50 shadow-[0_1px_5px_var(--foreground)] z-50">
+    <nav className="fixed mx-auto w-full h-16 px-10 flex items-center justify-between backdrop-blur-lg bg-background/50 shadow-[0_1px_5px_var(--foreground)] z-50">
       <Link href="/">
-        <Image src="/assets/logo/text-logo.png" width={70} height={70} alt="Logo" />
+        <Image src="/assets/logo/text-logo.png" width={80} height={80} alt="Logo" />
       </Link>
 
       <div className="flex items-center gap-4">
@@ -50,7 +50,7 @@ export default function DesktopNav() {
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
-        
+
         {/* Guias */}
         <DropdownMenu>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">

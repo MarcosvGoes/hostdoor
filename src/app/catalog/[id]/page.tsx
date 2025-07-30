@@ -5,7 +5,7 @@ import { useParams, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/components/Shadcn-ui/carousel";
 import { Card, CardContent } from "@/shared/components/Shadcn-ui/card";
-import { BedSingle, CarFront, CircleCheck, Images, PawPrint, Ruler, Share2, ShowerHead } from "lucide-react";
+import { BedSingle, CarFront, CircleCheck, Images, MapPinned, PawPrint, Ruler, Share2, ShowerHead } from "lucide-react";
 import { Badge } from "@/shared/components/Shadcn-ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/shared/components/Shadcn-ui/breadcrumb";
 import { Button } from "@/shared/components/Shadcn-ui/button";
@@ -101,7 +101,7 @@ export default function PropertyDetails() {
   if (!property) return <p>Carregando...</p>;
 
   return (
-    <div className="max-w-[90%] lg:max-w-[60%] mx-auto w-full mb-10">
+    <div className="max-w-[90%] lg:max-w-[1200px] lg:px-10 mx-auto w-full mb-10">
 
       <div className="flex justify-between items-center py-5" id="breadcumb-pages">
         <Breadcrumb>
@@ -125,14 +125,14 @@ export default function PropertyDetails() {
         </div>
       </div>
 
-      <div className="grid lg:flex gap-10">
-        <div className="grid gap-x-20 lg:w-4/5 w-full">
-          <Carousel className="h-full w-full" id="carousel-images">
+      <div className="flex flex-col lg:flex-row gap-10 w-full">
+        <div className="w-full lg:flex-1 grid gap-x-4">
+          <Carousel className="h-full" id="carousel-images">
             <CarouselContent className="h-full">
               {property.images.length > 0 ? (
                 property.images.map((src, idx) => (
-                  <CarouselItem key={idx} className="h-full w-full px-0">
-                    <CardContent className="relative h-60 lg:h-80 w-100vw p-0">
+                  <CarouselItem key={idx} className="h-full px-0">
+                    <CardContent className="relative h-60 lg:h-80 w-full p-0">
                       <Image
                         src={src}
                         alt={`Imagem ${idx + 1} de ${property.title}`}
@@ -209,7 +209,7 @@ export default function PropertyDetails() {
           </Carousel>
 
           <div className="mt-5">
-            <h1 className="text-xl font-semibold mb-2 truncate">{property.title}</h1>
+            <h1 className="text-lg font-semibold mb-2">{property.title}</h1>
 
             <div className="flex flex-wrap gap-x-4 gap-y-2 my-3 text-xs lg:text-md" id="icons-data">
               <div className="flex items-center gap-1">
@@ -262,14 +262,14 @@ export default function PropertyDetails() {
                 <span>{property.state}</span><br />
               </div>
             </div>
-            <Button className="rounded-full text-xs lg:text-base w-1/6" onClick={handleOpenMap}>
-              Ver no mapa
+            <Button className="rounded-full" variant={"secondary"} onClick={handleOpenMap} >
+              <MapPinned size={24} />
             </Button>
           </div>
         </div>
 
-        <div className="lg:w-1/5 w-full" id="price-card">
-          <div className="sticky top-24">
+        <div className="w-full lg:w-[280px] shrink-0" id="price-card">
+          <div className="lg:sticky top-24">
             <Card className="h-fit rounded-xs shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 gap-0">
               <div className="gap-x-1 flex items-center text-xs mb-4">
                 <span>Imóvel</span>
@@ -303,7 +303,7 @@ export default function PropertyDetails() {
               </div>
 
               <Button className="mt-10 rounded-full hover:bg-accent-foreground hover:text-muted" variant="secondary">
-                Entrar em contato com anunciante
+                Entrar em contato
               </Button>
             </Card>
           </div>
