@@ -9,21 +9,6 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useEffect, useState } from "react";
 
-const typeMap: Record<string, string> = {
-  house: "casa",
-  "condominium house": "casa",
-  "village house": "casa",
-  apartment: "apartamento",
-  loft: "apartamento",
-  kitnet: "apartamento",
-  penthouse: "apartamento",
-  "duplex triplex": "apartamento",
-  "office store": "comercial",
-  storage: "comercial",
-  "land ranch farm": "terreno",
-  others: "outros",
-};
-
 function PropertiesListComponent({ properties }: { properties: Property[] }) {
   const [viewed, setViewed] = useState<string[]>([]);
   const router = useRouter();
@@ -33,8 +18,6 @@ function PropertiesListComponent({ properties }: { properties: Property[] }) {
     const viewedIds = stored ? JSON.parse(stored) : [];
     setViewed(viewedIds);
   }, []);
-
-  const normalizeType = (type: string) => typeMap[type] || type;
 
   return (
     <div className="space-y-8">

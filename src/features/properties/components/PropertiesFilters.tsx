@@ -89,13 +89,13 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
         <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
           <SelectItem className="text-sm" value="all">Indiferente</SelectItem>
           <SelectItem className="text-sm" value="house">Casa</SelectItem>
-          <SelectItem className="text-sm" value="condominium house">Casa em condomínio</SelectItem>
-          <SelectItem className="text-sm" value="village house">Casa de vila</SelectItem>
           <SelectItem className="text-sm" value="apartment">Apartamento</SelectItem>
+          <SelectItem className="text-sm" value="loft">Loft</SelectItem>
+          <SelectItem className="text-sm" value="condominium house">Casa de condomínio</SelectItem>
+          <SelectItem className="text-sm" value="village house">Casa de vila</SelectItem>
           <SelectItem className="text-sm" value="penthouse">Cobertura</SelectItem>
           <SelectItem className="text-sm" value="duplex triplex">Duplex / Triplex</SelectItem>
           <SelectItem className="text-sm" value="kitnet">Kitnet</SelectItem>
-          <SelectItem className="text-sm" value="loft">Loft</SelectItem>
           <SelectItem className="text-sm" value="office store">Sala / Loja</SelectItem>
           <SelectItem className="text-sm" value="storage">Galpão / Depósito</SelectItem>
           <SelectItem className="text-sm" value="land ranch farm">Terreno / Sítio / Fazenda</SelectItem>
