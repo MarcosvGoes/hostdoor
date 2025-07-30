@@ -50,7 +50,6 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
         rentPriceMax: rentPriceMax ? Number(rentPriceMax) : undefined,
       }
       onFilterChange(filters);
-      console.log("Filters aplicados:", filters);
 
     }, 300);
 
