@@ -8,36 +8,53 @@ export default function PropertiesCatalog() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [filters, setFilters] = useState<Filters>({});
 
-  // Cache simples para evitar fetch repetido
   const cacheRef = useRef<Property[] | null>(null);
 
 useEffect(() => {
-  if (cacheRef.current) {
-    setProperties(cacheRef.current);
-    return;
-  }
-  fetch("/api/get-properties")
-    .then((res) => res.json())
-    .then((data) => {
-      if (Array.isArray(data)) {
-        cacheRef.current = data;
-        setProperties(data);
-      } else {
-        console.error("Erro no formato dos dados:", data);
+  const fetchData = async () => {
+    if (cacheRef.current) {
+      setProperties(cacheRef.current);
+      return;
+    }
+    
+    try {
+      const response = await fetch("/api/get-properties");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    })
-    .catch((err) => {
-      console.error("Erro de rede:", err);
-    });
+      const data = await response.json();
+      
+      if (Array.isArray(data)) {
+        setProperties(data);
+        cacheRef.current = data;
+        localStorage.setItem('propertiesCache', JSON.stringify(data));
+        localStorage.setItem('propertiesCacheTimestamp', Date.now().toString());
+      }
+    } catch (err) {
+      console.error("Erro ao buscar propriedades:", err);
+      const cached = localStorage.getItem('propertiesCache');
+      if (cached) {
+        setProperties(JSON.parse(cached));
+      }
+    }
+  };
+
+  const cachedData = localStorage.getItem('propertiesCache');
+  const cachedTimestamp = localStorage.getItem('propertiesCacheTimestamp');
+  const isCacheValid = cachedTimestamp && (Date.now() - parseInt(cachedTimestamp) < 3600000); // 1 hora
+  
+  if (isCacheValid && cachedData) {
+    setProperties(JSON.parse(cachedData));
+    cacheRef.current = JSON.parse(cachedData);
+  } else {
+    fetchData();
+  }
 }, []);
 
-
-  // Atualiza filtros com callback memorized para evitar rerender no filho
   const handleFilterChange = useCallback((newFilters: Filters) => {
     setFilters((prev) => ({ ...prev, ...newFilters }));
   }, []);
 
-  // Filtra propriedades baseado no filters, só recalcula se filters ou properties mudarem
   const filteredProperties = useMemo(() => {
     return properties.filter((p) => {
       if (filters.text) {
@@ -62,7 +79,6 @@ useEffect(() => {
 
       if (filters.parkingSpaces !== undefined && p.parkingSpaces !== filters.parkingSpaces) return false;
 
-      // *** Filtro que faltava ***
       if (filters.allowsPets !== undefined && p.allowsPets !== filters.allowsPets) return false;
 
       if (filters.rentPriceMin !== undefined && p.rentPrice < filters.rentPriceMin) return false;

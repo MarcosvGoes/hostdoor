@@ -262,7 +262,7 @@ export default function PropertyDetails() {
                 <span>{property.state}</span><br />
               </div>
             </div>
-            <Button className="rounded-full" variant={"secondary"} onClick={handleOpenMap} >
+            <Button className="rounded-full hover:bg-accent-foreground hover:text-muted" variant={"secondary"} onClick={handleOpenMap} >
               <MapPinned size={24} />
             </Button>
           </div>

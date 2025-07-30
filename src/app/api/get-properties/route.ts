@@ -1,39 +1,41 @@
-import { AppDomain } from "@/utils/routes";
 import { NextResponse } from "next/server";
 
-export const revalidate = 300;
+export const revalidate = 300; // 5 minutos
 
 export async function GET() {
-  const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:3001" : AppDomain;
+  const baseUrl = process.env.NODE_ENV === "development" 
+    ? "http://localhost:3001" 
+    : "https://dommi-rent.vercel.app"; // Use o URL completo diretamente
 
   try {
     const res = await fetch(`${baseUrl}/api/properties`, {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
       },
+      next: { revalidate: 300 } // Adiciona revalidação no fetch também
     });
 
-    let data = null;
-    const contentType = res.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-      data = await res.json();
-    } else {
-      data = { error: "Resposta não é JSON" };
-    }
-
     if (!res.ok) {
-      const raw = await res.text();
-      console.log("Status:", res.status);
-      console.log("Raw response:", raw);
+      // Se for erro 429, retorna cache se existir
+      if (res.status === 429) {
+        console.warn("Rate limit atingido, retornando cache se disponível");
+        // Você poderia implementar lógica para retornar cache local aqui
+      }
+      const errorData = await res.text();
+      console.error(`Erro ${res.status} na API:`, errorData);
       return NextResponse.json(
-        { error: "Erro ao buscar propriedades", raw },
+        { error: "Erro ao buscar propriedades", details: errorData },
         { status: res.status }
       );
     }
 
+    const data = await res.json();
     return NextResponse.json(data);
   } catch (err) {
     console.error("Erro de fetch:", err);
-    return NextResponse.json({ error: "Erro interno na chamada de API" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Erro interno na chamada de API"},
+      { status: 500 }
+    );
   }
 }
