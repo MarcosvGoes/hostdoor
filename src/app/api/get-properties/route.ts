@@ -6,13 +6,19 @@ export async function GET() {
   console.log("Fetching from:", `${baseUrl}/api/properties`);
   console.log("Using API_KEY:", process.env.API_KEY_LIST_PROPERTIES);
 
-  const res = await fetch(`${baseUrl}/api/properties`, { 
+  const res = await fetch(`${baseUrl}/api/properties`, {
     headers: {
-      Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
+      Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES || ""}`,
     },
   });
 
-  const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch (err) {
+    console.error("Erro ao fazer parse do JSON:", err);
+    return NextResponse.json({ error: "Resposta inválida da API" }, { status: 500 });
+  }
 
   if (!res.ok) {
     return NextResponse.json(data, { status: res.status });
