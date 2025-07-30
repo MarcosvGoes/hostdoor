@@ -4,8 +4,6 @@ import PropertiesList from "@/features/properties/components/PropertiesList";
 import { Property } from "@/shared/types/Property";
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 
-export const revalidate = 300;
-
 export default function PropertiesCatalog() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [filters, setFilters] = useState<Filters>({});
