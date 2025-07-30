@@ -12,12 +12,10 @@ export async function GET() {
     },
   });
 
- if (!res.ok) {
-  const text = await res.text();
-  return NextResponse.json({ error: text || "Erro desconhecido" }, { status: res.status });
-}
-
-console.error("Erro na requisição /api/properties:", res.status, await res.text());
+  if (!res.ok) {
+    const errorData = await res.json();
+    return NextResponse.json(errorData, { status: res.status });
+  }
 
   const data = await res.json();
   return NextResponse.json(data);
