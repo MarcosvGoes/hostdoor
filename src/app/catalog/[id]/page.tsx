@@ -280,10 +280,10 @@ export default function PropertyDetails() {
                   <span>Aluguel</span>
                   <span>{rentPriceFormatted}</span>
                 </div>
-                {property.condominium > 0 ? <div className="flex items-center justify-between text-muted-foreground text-sm">
+                <div className="flex items-center justify-between text-muted-foreground text-sm">
                   <span>Condomínio</span>
                   <span>{condominiumFormatted}</span>
-                </div> : ""}
+                </div>
 
                 <div className="flex items-center justify-between text-muted-foreground text-sm">
                   <span>IPTU</span>
