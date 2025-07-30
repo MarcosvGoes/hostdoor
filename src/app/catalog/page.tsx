@@ -20,16 +20,17 @@ useEffect(() => {
     .then((res) => res.json())
     .then((data) => {
       if (Array.isArray(data)) {
-        setProperties(data);
         cacheRef.current = data;
+        setProperties(data);
       } else {
-        console.error("Erro ao buscar propriedades:", data);
+        console.error("Erro no formato dos dados:", data);
       }
     })
     .catch((err) => {
-      console.error("Erro de rede ao buscar propriedades:", err);
+      console.error("Erro de rede:", err);
     });
 }, []);
+
 
   // Atualiza filtros com callback memorized para evitar rerender no filho
   const handleFilterChange = useCallback((newFilters: Filters) => {

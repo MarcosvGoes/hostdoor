@@ -1,6 +1,8 @@
 import { AppDomain } from "@/utils/routes";
 import { NextResponse } from "next/server";
 
+export const revalidate = 300;
+
 export async function GET() {
   const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:3001" : AppDomain;
 
