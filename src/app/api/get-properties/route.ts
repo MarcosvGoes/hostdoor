@@ -5,11 +5,11 @@ export async function GET() {
   const baseUrl = process.env.NODE_ENV === "development" ? "http://localhost:3001" : AppDomain;
 
   try {
-    const res = await fetch(`${baseUrl}/api/properties`);
-
-    // headers: {
-    //   Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
-    // },
+    const res = await fetch(`${baseUrl}/api/properties`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
+      },
+    });
 
     let data = null;
     const contentType = res.headers.get("content-type");
