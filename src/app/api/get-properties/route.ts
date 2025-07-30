@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-export const revalidate = 300; // 5 minutos
+export const dynamic = 'force-static';
+export const revalidate = 300;
 
 export async function GET() {
   const baseUrl = process.env.NODE_ENV === "development" 

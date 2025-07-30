@@ -4,52 +4,57 @@ import PropertiesList from "@/features/properties/components/PropertiesList";
 import { Property } from "@/shared/types/Property";
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 
+export const revalidate = 300;
+
 export default function PropertiesCatalog() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [filters, setFilters] = useState<Filters>({});
 
   const cacheRef = useRef<Property[] | null>(null);
 
-useEffect(() => {
-  const fetchData = async () => {
-    if (cacheRef.current) {
-      setProperties(cacheRef.current);
-      return;
-    }
-    
-    try {
-      const response = await fetch("/api/get-properties");
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      if (cacheRef.current) {
+        setProperties(cacheRef.current);
+        return;
       }
-      const data = await response.json();
-      
-      if (Array.isArray(data)) {
-        setProperties(data);
-        cacheRef.current = data;
-        localStorage.setItem('propertiesCache', JSON.stringify(data));
-        localStorage.setItem('propertiesCacheTimestamp', Date.now().toString());
-      }
-    } catch (err) {
-      console.error("Erro ao buscar propriedades:", err);
-      const cached = localStorage.getItem('propertiesCache');
-      if (cached) {
-        setProperties(JSON.parse(cached));
-      }
-    }
-  };
 
-  const cachedData = localStorage.getItem('propertiesCache');
-  const cachedTimestamp = localStorage.getItem('propertiesCacheTimestamp');
-  const isCacheValid = cachedTimestamp && (Date.now() - parseInt(cachedTimestamp) < 3600000); // 1 hora
-  
-  if (isCacheValid && cachedData) {
-    setProperties(JSON.parse(cachedData));
-    cacheRef.current = JSON.parse(cachedData);
-  } else {
-    fetchData();
-  }
-}, []);
+      try {
+        const response = await fetch("/api/get-properties", {
+          headers: { Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}` },
+          next: { revalidate: 300 }
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+          setProperties(data);
+          cacheRef.current = data;
+          localStorage.setItem('propertiesCache', JSON.stringify(data));
+          localStorage.setItem('propertiesCacheTimestamp', Date.now().toString());
+        }
+      } catch (err) {
+        console.error("Erro ao buscar propriedades:", err);
+        const cached = localStorage.getItem('propertiesCache');
+        if (cached) {
+          setProperties(JSON.parse(cached));
+        }
+      }
+    };
+
+    const cachedData = localStorage.getItem('propertiesCache');
+    const cachedTimestamp = localStorage.getItem('propertiesCacheTimestamp');
+    const isCacheValid = cachedTimestamp && (Date.now() - parseInt(cachedTimestamp) < 3600000); // 1 hora
+
+    if (isCacheValid && cachedData) {
+      setProperties(JSON.parse(cachedData));
+      cacheRef.current = JSON.parse(cachedData);
+    } else {
+      fetchData();
+    }
+  }, []);
 
   const handleFilterChange = useCallback((newFilters: Filters) => {
     setFilters((prev) => ({ ...prev, ...newFilters }));
