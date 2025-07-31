@@ -1,10 +1,17 @@
-import { getPropertiesFromExternalAPI } from "@/features/properties/actions/getPropertiesFromExternalAPI";
+// src/app/catalog/page.tsx
+"use client";
+import { useEffect, useState } from "react";
 import PropertiesClientWrapper from "@/features/properties/components/PropertiesClientWrapper";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 300;
+export default function PropertiesCatalogPage() {
+  const [properties, setProperties] = useState([]);
 
-export default async function PropertiesCatalogPage() {
-  const properties = await getPropertiesFromExternalAPI();
+  useEffect(() => {
+    fetch("/api/get-properties")
+      .then((r) => r.json())
+      .then((data) => setProperties(data))
+      .catch(console.error);
+  }, []);
+
   return <PropertiesClientWrapper initialProperties={properties} />;
 }
