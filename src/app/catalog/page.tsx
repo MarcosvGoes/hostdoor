@@ -1,16 +1,10 @@
-"use client";
-import { useEffect, useState } from "react";
+import { getPropertiesFromExternalAPI } from "@/features/properties/actions/getPropertiesFromExternalAPI";
 import PropertiesClientWrapper from "@/features/properties/components/PropertiesClientWrapper";
 
-export default function PropertiesCatalogPage() {
-  const [properties, setProperties] = useState([]);
+export const revalidate = 60;
 
-  useEffect(() => {
-    fetch("/api/get-properties")
-      .then((r) => r.json())
-      .then((data) => setProperties(data))
-      .catch(console.error);
-  }, []);
+export default async function PropertiesCatalogPage() {
+  const properties = await getPropertiesFromExternalAPI();
 
   return <PropertiesClientWrapper initialProperties={properties} />;
 }
