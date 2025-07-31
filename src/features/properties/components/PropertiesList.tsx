@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import { Badge } from "@/shared/components/Shadcn-ui/badge";
 import { Card, CardContent } from "@/shared/components/Shadcn-ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/components/Shadcn-ui/carousel";
@@ -6,10 +7,13 @@ import { Property } from "@/shared/types/Property";
 import { BedSingle, CarFront, Images, PawPrint, Ruler, ShowerHead } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function PropertiesListComponent({ properties }: { properties: Property[] }) {
+interface Props {
+  properties: Property[];
+}
+
+function PropertiesListComponent({ properties }: Props) {
   const [viewed, setViewed] = useState<string[]>([]);
   const router = useRouter();
 
@@ -56,7 +60,7 @@ function PropertiesListComponent({ properties }: { properties: Property[] }) {
                               <Badge className="text-foreground bg-background/80">Visualizado</Badge>
                             )}
                             <Badge className="text-foreground bg-background/80">
-                              <Images size={12} /> {idx + 1}/{property.images.length}
+                              <Images size={12} /> {property.images.length}
                             </Badge>
                           </div>
                         </CardContent>
@@ -98,16 +102,15 @@ function PropertiesListComponent({ properties }: { properties: Property[] }) {
                     <CarFront size={16} /> <span>{property.parkingSpaces} vaga{property.parkingSpaces !== 1 ? "s" : ""}</span>
                   </div>
                 )}
-                {!!property.allowsPets
-                  ?
+                {!!property.allowsPets ? (
                   <div className="flex items-center gap-1">
                     <PawPrint size={16} /> <p>Aceita pets</p>
                   </div>
-                  : (
-                    <div className="flex items-center gap-1">
-                      <PawPrint size={16} /> <p>Não aceita pet</p>
-                    </div>
-                  )}
+                ) : (
+                  <div className="flex items-center gap-1">
+                    <PawPrint size={16} /> <p>Não aceita pet</p>
+                  </div>
+                )}
               </div>
               <div>
                 <p className="text-base font-semibold mt-1">R$ {property.rentPrice.toLocaleString()} Aluguel</p>
