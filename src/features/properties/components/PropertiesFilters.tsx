@@ -33,6 +33,28 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
   const [rentPriceMax, setRentPriceMax] = useState<string>("");
   const [squareMetersMin, setSquareMetersMin] = useState<string>("");
   const [squareMetersMax, setSquareMetersMax] = useState<string>("");
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scroll pra baixo, esconde nav
+        setHidden(true);
+      } else {
+        // Scroll pra cima, mostra nav
+        setHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -69,8 +91,11 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
 
   return (
     <>
-      <div className="lg:hidden fixed z-20 inset-x-0 top-17 w-full max-w-[90%] mx-auto flex flex-col">
-        <Card className="w-full px-4 py-2 m-0 grid gap-2">
+      <div
+        className={`lg:hidden fixed z-20 inset-x-0 w-full max-w-[90%] mx-auto flex flex-col
+    transition-all duration-300 ease-in-out
+    ${hidden ? "top-2" : "top-17"}`}
+      >        <Card className="w-full px-4 py-2 m-0 grid gap-2">
           <div className="relative">
             <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={14} />
             <Input

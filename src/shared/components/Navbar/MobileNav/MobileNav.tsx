@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Menu, X } from "lucide-react";
@@ -19,9 +19,34 @@ import { Button } from "@/shared/components/Shadcn-ui/button";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scroll pra baixo, esconde nav
+        setHidden(true);
+      } else {
+        // Scroll pra cima, mostra nav
+        setHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <nav className="shadow-[0_1px_5px_var(--foreground)] fixed h-16 justify-between flex items-center w-full px-6 bg-background z-50 border-none">
+    <nav
+      className={`shadow-[0_1px_5px_var(--foreground)] fixed h-16 justify-between flex items-center w-full px-6 bg-background z-50 border-none transition-transform duration-300 ${
+        hidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <Link href="/" className="flex h-auto items-center gap-x-2">
         <Image src="/assets/logo/text-logo.png" width={80} height={80} alt="Logo" />
       </Link>
