@@ -59,7 +59,7 @@ export default function DesktopNav() {
         {/* Guias */}
         <DropdownMenu>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
-            Guia <ChevronDown className="w-4 h-4" />
+            Guias <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
 
           <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">

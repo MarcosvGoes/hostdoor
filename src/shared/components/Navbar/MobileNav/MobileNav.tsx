@@ -104,7 +104,7 @@ export default function MobileNav() {
 
             <AccordionItem value="guide" className="border-none">
               <AccordionTrigger className="text-sm font-semibold px-3 items-center m-0">
-                Guia
+                Guias
               </AccordionTrigger>
               <AccordionContent className="mx-3 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">

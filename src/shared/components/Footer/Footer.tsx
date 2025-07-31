@@ -9,8 +9,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Dommi</h3>
           <p className="text-sm text-gray-400">
-            Somos líderes em soluções tecnológicas para o mercado imobiliário, conectando pessoas e imóveis com inovação e eficiência.
-          </p>
+Acreditamos que alugar um imóvel deve ser simples, seguro e justo. Oferecemos uma alternativa digital às imobiliárias tradicionais, sem taxas abusivas e com total transparência para inquilinos e proprietários.          </p>
         </div>
 
         {/* Coluna 2 - Navegação */}
@@ -57,7 +56,7 @@ export default function Footer() {
 
       {/* Rodapé inferior */}
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Dommi. Todos os direitos reservados.
+        © {new Date().getFullYear()} <span className="font-semibold text-gray-300">Dommi</span>. Todos os direitos reservados.
       </div>
     </footer>
   );
