@@ -15,8 +15,13 @@ import { Button } from "@/shared/components/Shadcn-ui/button";
 export default function DesktopNav() {
   return (
     <nav className="fixed mx-auto w-full h-16 px-10 flex items-center justify-between backdrop-blur-lg bg-background/50 shadow-[0_1px_5px_var(--foreground)] z-50">
-      <Link href="/">
-        <Image src="/assets/logo/text-logo.png" width={80} height={80} alt="Logo" />
+      <Link style={{ position: "relative", width: 80, height: 40 }} href="/">
+        <Image
+          src="/assets/logo/text-logo.png"
+          alt="Logo"
+          fill
+          style={{ objectFit: "contain" }}
+        />
       </Link>
 
       <div className="flex items-center gap-4">
