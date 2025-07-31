@@ -1,5 +1,6 @@
 'use client'
 import { Button } from "@/shared/components/Shadcn-ui/button";
+import { Card } from "@/shared/components/Shadcn-ui/card";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/shared/components/Shadcn-ui/dropdown-menu";
 import { Input } from "@/shared/components/Shadcn-ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/components/Shadcn-ui/select";
@@ -67,167 +68,313 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
   const onSquareMetersMaxChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => setSquareMetersMax(e.target.value), []);
 
   return (
-    <div className="flex gap-4 items-center top-[65px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
-      {/* Input texto para city, neighborhood, state */}
-      <div className="relative">
-        <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
-        <Input
-          placeholder="Buscar por bairro, cidade, estado"
-          className="pl-10 rounded-full w-[320px] h-[42px]"
-          value={text}
-          onChange={onTextChange}
-          spellCheck={false}
-        />
+    <>
+      <div className="lg:hidden fixed z-20 inset-x-0 top-17 w-full max-w-[90%] mx-auto flex flex-col">
+        <Card className="w-full px-4 py-2 m-0 grid gap-2">
+          <div className="relative">
+            <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={14} />
+            <Input
+              placeholder="Buscar por bairro, cidade, estado"
+              className="pl-8 rounded-full h-10 placeholder:text-xs"
+              value={text}
+              onChange={onTextChange}
+              spellCheck={false}
+            />
+          </div>
+          <div className="lg:hidden w-full pb-1 mx-auto overflow-x-auto scrollbar-none">
+            <div className="flex gap-3 w-max">
+              {/* Tipo */}
+              <Select onValueChange={setType} value={type}>
+                <SelectTrigger className="rounded-full whitespace-nowrap px-4 h-10 min-w-[100px]">
+                  <SelectValue placeholder="Tipo" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Indiferente</SelectItem>
+                  <SelectItem value="house">Casa</SelectItem>
+                  <SelectItem value="apartment">Apartamento</SelectItem>
+                  <SelectItem value="loft">Loft</SelectItem>
+                  <SelectItem value="condominium house">Casa de condomínio</SelectItem>
+                  <SelectItem value="village house">Casa de vila</SelectItem>
+                  <SelectItem value="penthouse">Cobertura</SelectItem>
+                  <SelectItem value="duplex triplex">Duplex / Triplex</SelectItem>
+                  <SelectItem value="kitnet">Kitnet</SelectItem>
+                  <SelectItem value="office store">Sala / Loja</SelectItem>
+                  <SelectItem value="storage">Galpão / Depósito</SelectItem>
+                  <SelectItem value="land ranch farm">Terreno / Sítio / Fazenda</SelectItem>
+                  <SelectItem value="others">Outros</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Quartos */}
+              <Select onValueChange={setBedrooms} value={bedrooms}>
+                <SelectTrigger className="rounded-full whitespace-nowrap px-4 h-10 min-w-[100px]">
+                  <SelectValue placeholder="Quartos" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Indiferente</SelectItem>
+                  {[0, 1, 2, 3, 4].map(n => (
+                    <SelectItem key={n} value={String(n)}>
+                      {n === 0 ? "Sem quarto" : `${n} Quarto${n > 1 ? "s" : ""}`}
+                    </SelectItem>
+                  ))}
+                  <SelectItem value="5">5+ Quartos</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Banheiros */}
+              <Select onValueChange={setBathrooms} value={bathrooms}>
+                <SelectTrigger className="rounded-full whitespace-nowrap px-4 h-10 min-w-[100px]">
+                  <SelectValue placeholder="Banheiros" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Indiferente</SelectItem>
+                  {[1, 2, 3, 4].map(n => (
+                    <SelectItem key={n} value={String(n)}>
+                      {n} {n > 1 ? "Banheiros" : "Banheiro"}
+                    </SelectItem>
+                  ))}
+                  <SelectItem value="5">5+ Banheiros</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Pets */}
+              <Select onValueChange={setAllowsPets} value={allowsPets}>
+                <SelectTrigger className="rounded-full whitespace-nowrap px-4 h-10 min-w-[100px]">
+                  <SelectValue placeholder="Pets" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Indiferente</SelectItem>
+                  <SelectItem value="true">Aceita</SelectItem>
+                  <SelectItem value="false">Não aceita</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Área */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="rounded-full whitespace-nowrap px-4">
+                    Área
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="p-2 grid gap-2">
+                  <span className="text-xs font-semibold">Área</span>
+                  <div className="flex gap-2 items-center">
+                    <Input
+                      type="number"
+                      placeholder="mín"
+                      value={squareMetersMin}
+                      onChange={(e) => setSquareMetersMin(e.target.value)}
+                      className="w-20"
+                    />
+                    <span>-</span>
+                    <Input
+                      type="number"
+                      placeholder="máx"
+                      value={squareMetersMax}
+                      onChange={(e) => setSquareMetersMax(e.target.value)}
+                      className="w-20"
+                    />
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* Aluguel */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="rounded-full whitespace-nowrap px-4">
+                    Aluguel
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="p-2 grid gap-2">
+                  <span className="text-xs font-semibold">Valor do Aluguel</span>
+                  <div className="flex gap-2 items-center">
+                    <Input
+                      type="number"
+                      placeholder="mín"
+                      value={rentPriceMin}
+                      onChange={(e) => setRentPriceMin(e.target.value)}
+                      className="w-20"
+                    />
+                    <span>-</span>
+                    <Input
+                      type="number"
+                      placeholder="máx"
+                      value={rentPriceMax}
+                      onChange={(e) => setRentPriceMax(e.target.value)}
+                      className="w-20"
+                    />
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </div>
+        </Card>
       </div>
 
-      {/* Select tipo imóvel */}
-      <Select onValueChange={setType} value={type}>
-        <SelectTrigger className="w-[220px] py-5 rounded-full">
-          <SelectValue placeholder="Filtrar por tipo" />
-        </SelectTrigger>
-        <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
-          <SelectItem className="text-sm" value="all">Indiferente</SelectItem>
-          <SelectItem className="text-sm" value="house">Casa</SelectItem>
-          <SelectItem className="text-sm" value="apartment">Apartamento</SelectItem>
-          <SelectItem className="text-sm" value="loft">Loft</SelectItem>
-          <SelectItem className="text-sm" value="condominium house">Casa de condomínio</SelectItem>
-          <SelectItem className="text-sm" value="village house">Casa de vila</SelectItem>
-          <SelectItem className="text-sm" value="penthouse">Cobertura</SelectItem>
-          <SelectItem className="text-sm" value="duplex triplex">Duplex / Triplex</SelectItem>
-          <SelectItem className="text-sm" value="kitnet">Kitnet</SelectItem>
-          <SelectItem className="text-sm" value="office store">Sala / Loja</SelectItem>
-          <SelectItem className="text-sm" value="storage">Galpão / Depósito</SelectItem>
-          <SelectItem className="text-sm" value="land ranch farm">Terreno / Sítio / Fazenda</SelectItem>
-          <SelectItem className="text-sm" value="others">Outros</SelectItem>
-        </SelectContent>
-      </Select>
 
-      <Select onValueChange={setBedrooms} value={bedrooms}>
-        <SelectTrigger className="w-32 py-5 rounded-full">
-          <SelectValue placeholder="Quartos" />
-        </SelectTrigger>
-        <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
-          <SelectItem value="all" className="text-sm ">Indiferente</SelectItem>
-          {[0, 1, 2, 3, 4].map(n => (
-            <SelectItem key={n} className="text-sm" value={String(n)}>
-              {n === 0 ? "Sem quarto" : `${n} Quarto${n > 1 ? "s" : ""}`}
-            </SelectItem>
-          ))}
-          <SelectItem className="text-sm" value="5">5+ Quartos</SelectItem>
-        </SelectContent>
-      </Select>
+      {/* Desktop Filters */}
+      <div className="hidden lg:flex gap-4 items-center top-[65px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
+        {/* Input texto para city, neighborhood, state */}
+        <div className="relative">
+          <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+          <Input
+            placeholder="Buscar por bairro, cidade, estado"
+            className="pl-10 rounded-full w-[320px] h-[42px]"
+            value={text}
+            onChange={onTextChange}
+            spellCheck={false}
+          />
+        </div>
+
+        {/* Select tipo imóvel */}
+        <Select onValueChange={setType} value={type}>
+          <SelectTrigger className="w-[220px] py-5 rounded-full">
+            <SelectValue placeholder="Filtrar por tipo" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
+            <SelectItem className="text-sm" value="all">Indiferente</SelectItem>
+            <SelectItem className="text-sm" value="house">Casa</SelectItem>
+            <SelectItem className="text-sm" value="apartment">Apartamento</SelectItem>
+            <SelectItem className="text-sm" value="loft">Loft</SelectItem>
+            <SelectItem className="text-sm" value="condominium house">Casa de condomínio</SelectItem>
+            <SelectItem className="text-sm" value="village house">Casa de vila</SelectItem>
+            <SelectItem className="text-sm" value="penthouse">Cobertura</SelectItem>
+            <SelectItem className="text-sm" value="duplex triplex">Duplex / Triplex</SelectItem>
+            <SelectItem className="text-sm" value="kitnet">Kitnet</SelectItem>
+            <SelectItem className="text-sm" value="office store">Sala / Loja</SelectItem>
+            <SelectItem className="text-sm" value="storage">Galpão / Depósito</SelectItem>
+            <SelectItem className="text-sm" value="land ranch farm">Terreno / Sítio / Fazenda</SelectItem>
+            <SelectItem className="text-sm" value="others">Outros</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Select onValueChange={setBedrooms} value={bedrooms}>
+          <SelectTrigger className="w-32 py-5 rounded-full">
+            <SelectValue placeholder="Quartos" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
+            <SelectItem value="all" className="text-sm ">Indiferente</SelectItem>
+            {[0, 1, 2, 3, 4].map(n => (
+              <SelectItem key={n} className="text-sm" value={String(n)}>
+                {n === 0 ? "Sem quarto" : `${n} Quarto${n > 1 ? "s" : ""}`}
+              </SelectItem>
+            ))}
+            <SelectItem className="text-sm" value="5">5+ Quartos</SelectItem>
+          </SelectContent>
+        </Select>
 
 
-      <Select onValueChange={setBathrooms} value={bathrooms}>
-        <SelectTrigger className="w-36 py-5 rounded-full">
-          <SelectValue placeholder="Banheiros" />
-        </SelectTrigger>
-        <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
-          <SelectItem value="all" className="text-sm ">Indiferente</SelectItem>
-          {[1, 2, 3, 4].map((n) => (
-            <SelectItem className="text-sm" key={n} value={String(n)}>{`${n} ${n > 1 ? "Banheiros" : "Banheiro"}`}</SelectItem>
-          ))}
-          <SelectItem className="text-sm" value="5">5+ Banheiros</SelectItem>
-        </SelectContent>
-      </Select>
+        <Select onValueChange={setBathrooms} value={bathrooms}>
+          <SelectTrigger className="w-36 py-5 rounded-full">
+            <SelectValue placeholder="Banheiros" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xs max-w-[90%] mx-auto font-medium">
+            <SelectItem value="all" className="text-sm ">Indiferente</SelectItem>
+            {[1, 2, 3, 4].map((n) => (
+              <SelectItem className="text-sm" key={n} value={String(n)}>{`${n} ${n > 1 ? "Banheiros" : "Banheiro"}`}</SelectItem>
+            ))}
+            <SelectItem className="text-sm" value="5">5+ Banheiros</SelectItem>
+          </SelectContent>
+        </Select>
 
-      <Select onValueChange={setParkingSpaces} value={parkingSpaces}>
-        <SelectTrigger className="w-44 py-5 rounded-full">
-          <SelectValue placeholder="Vagas de garagem" />
-        </SelectTrigger>
-        <SelectContent className="rounded-xs font-medium">
-          <SelectItem value="all" className="text-sm">Indiferente</SelectItem>
-          {[0, 1, 2, 3, 4].map(n => (
-            <SelectItem key={n} className="text-sm" value={String(n)}>
-              {n === 0 ? "Sem vaga" : `${n} Vaga${n > 1 ? "s" : ""}`}
-            </SelectItem>
-          ))}
-          <SelectItem className="text-sm" value="5">5+ Vagas</SelectItem>
-        </SelectContent>
-      </Select>
+        <Select onValueChange={setParkingSpaces} value={parkingSpaces}>
+          <SelectTrigger className="w-44 py-5 rounded-full">
+            <SelectValue placeholder="Vagas de garagem" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xs font-medium">
+            <SelectItem value="all" className="text-sm">Indiferente</SelectItem>
+            {[0, 1, 2, 3, 4].map(n => (
+              <SelectItem key={n} className="text-sm" value={String(n)}>
+                {n === 0 ? "Sem vaga" : `${n} Vaga${n > 1 ? "s" : ""}`}
+              </SelectItem>
+            ))}
+            <SelectItem className="text-sm" value="5">5+ Vagas</SelectItem>
+          </SelectContent>
+        </Select>
 
-      <Select onValueChange={setAllowsPets} value={allowsPets}>
-        <SelectTrigger className="w-36 py-5 rounded-full">
-          <SelectValue placeholder="Aceita pets" />
-        </SelectTrigger>
-        <SelectContent className="rounded-xs font-medium">
-          <SelectItem value="all" className="text-sm">Indiferente</SelectItem>
-          <SelectItem value="true" className="text-sm">Sim</SelectItem>
-          <SelectItem value="false" className="text-sm">Não</SelectItem>
-        </SelectContent>
-      </Select>
+        <Select onValueChange={setAllowsPets} value={allowsPets}>
+          <SelectTrigger className="w-36 py-5 rounded-full">
+            <SelectValue placeholder="Aceita pets" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xs font-medium">
+            <SelectItem value="all" className="text-sm">Indiferente</SelectItem>
+            <SelectItem value="true" className="text-sm">Sim</SelectItem>
+            <SelectItem value="false" className="text-sm">Não</SelectItem>
+          </SelectContent>
+        </Select>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="rounded-full w-20 py-5 justify-center">
-            Área
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="rounded-full w-20 py-5 justify-center">
+              Área
+            </Button>
+          </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="start" className="grid p-6">
-          <h1 className="mb-4">Área</h1>
-          <div className="w-80 rounded-xl space-x-2 flex">
-            <div>
-              <label className="text-sm text-muted-foreground">Mínimo</label>
-              <Input
-                type="number"
-                min={0}
-                value={squareMetersMin}
-                onChange={onSquareMetersMinChange}
-                className="mt-1 border-black/50"
-                placeholder="Ex: 40"
-              />
+          <DropdownMenuContent align="start" className="grid p-6">
+            <h1 className="mb-4">Área</h1>
+            <div className="w-80 rounded-xl space-x-2 flex">
+              <div>
+                <label className="text-sm text-muted-foreground">Mínimo</label>
+                <Input
+                  type="number"
+                  min={0}
+                  value={squareMetersMin}
+                  onChange={onSquareMetersMinChange}
+                  className="mt-1 border-black/50"
+                  placeholder="Ex: 40"
+                />
+              </div>
+              <div>
+                <label className="text-sm text-muted-foreground">Máximo</label>
+                <Input
+                  type="number"
+                  min={0}
+                  value={squareMetersMax}
+                  onChange={onSquareMetersMaxChange}
+                  className="mt-1 border-black/50"
+                  placeholder="Ex: 120"
+                />
+              </div>
             </div>
-            <div>
-              <label className="text-sm text-muted-foreground">Máximo</label>
-              <Input
-                type="number"
-                min={0}
-                value={squareMetersMax}
-                onChange={onSquareMetersMaxChange}
-                className="mt-1 border-black/50"
-                placeholder="Ex: 120"
-              />
-            </div>
-          </div>
-        </DropdownMenuContent>
-      </DropdownMenu>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="rounded-full w-24 py-5 justify-center">
-            Aluguel
-          </Button>
-        </DropdownMenuTrigger>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="rounded-full w-24 py-5 justify-center">
+              Aluguel
+            </Button>
+          </DropdownMenuTrigger>
 
-        <DropdownMenuContent align="start" className="grid p-6">
-          <h1 className="mb-4">Valor</h1>
-          <div className="w-80 rounded-xl space-x-2 flex">
-            <div>
-              <label className="text-sm text-muted-foreground">Mínimo</label>
-              <Input
-                type="number"
-                min={0}
-                value={rentPriceMin}
-                onChange={(e) => setRentPriceMin(e.target.value)}
-                className="mt-1 border-black/50"
-                placeholder="Ex: 800"
-              />
+          <DropdownMenuContent align="start" className="grid p-6">
+            <h1 className="mb-4">Valor</h1>
+            <div className="w-80 rounded-xl space-x-2 flex">
+              <div>
+                <label className="text-sm text-muted-foreground">Mínimo</label>
+                <Input
+                  type="number"
+                  min={0}
+                  value={rentPriceMin}
+                  onChange={(e) => setRentPriceMin(e.target.value)}
+                  className="mt-1 border-black/50"
+                  placeholder="Ex: 800"
+                />
+              </div>
+              <div>
+                <label className="text-sm text-muted-foreground">Máximo</label>
+                <Input
+                  type="number"
+                  min={0}
+                  value={rentPriceMax}
+                  onChange={(e) => setRentPriceMax(e.target.value)}
+                  className="mt-1 border-black/50"
+                  placeholder="Ex: 2500"
+                />
+              </div>
             </div>
-            <div>
-              <label className="text-sm text-muted-foreground">Máximo</label>
-              <Input
-                type="number"
-                min={0}
-                value={rentPriceMax}
-                onChange={(e) => setRentPriceMax(e.target.value)}
-                className="mt-1 border-black/50"
-                placeholder="Ex: 2500"
-              />
-            </div>
-          </div>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </>
   );
 }

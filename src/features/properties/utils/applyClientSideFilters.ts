@@ -5,7 +5,7 @@ export function applyClientSideFilters(properties: Property[], filters: Filters)
   return properties.filter((property) => {
     if (filters.text) {
       const text = filters.text.toLowerCase();
-      const searchable = `${property.city} ${property.state} ${property.neighborhood}`.toLowerCase();
+      const searchable = `${property.street} ${property.neighborhood} ${property.city} ${property.state}`.toLowerCase();
       if (!searchable.includes(text)) return false;
     }
 
