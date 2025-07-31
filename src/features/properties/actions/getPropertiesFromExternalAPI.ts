@@ -7,7 +7,7 @@ export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
       },
-      next: { revalidate: 300 },
+      next: { revalidate: 10 },
       cache: "force-cache",
     }
   );

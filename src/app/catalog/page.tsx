@@ -1,4 +1,3 @@
-// src/app/catalog/page.tsx
 "use client";
 import { useEffect, useState } from "react";
 import PropertiesClientWrapper from "@/features/properties/components/PropertiesClientWrapper";
