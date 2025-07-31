@@ -120,7 +120,7 @@ export default function PropertyDetails() {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <div onClick={handleShareClick} className="cursor-pointer">
+        <div onClick={handleShareClick} className="cursor-pointer bg-accent p-2 rounded-full hover:bg-accent/50 transition duration-100">
           <Share2 size={16} />
         </div>
       </div>
