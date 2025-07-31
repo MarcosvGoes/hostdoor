@@ -1,3 +1,5 @@
+// src/app/catalog/page.tsx
+
 import { getPropertiesFromExternalAPI } from "@/features/properties/actions/getPropertiesFromExternalAPI";
 import PropertiesClientWrapper from "@/features/properties/components/PropertiesClientWrapper";
 
