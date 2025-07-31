@@ -1,3 +1,4 @@
+import { revalidate } from "@/app/api/get-properties/route";
 import { Property } from "@/shared/types/Property";
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
@@ -7,7 +8,7 @@ export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
       },
-      next: { revalidate: 10 },
+      next: { revalidate: revalidate },
       cache: "force-cache",
     }
   );

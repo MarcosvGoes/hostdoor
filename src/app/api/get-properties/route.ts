@@ -1,9 +1,8 @@
-// src/app/api/get-properties/route.ts
 import { getPropertiesFromExternalAPI } from "@/features/properties/actions/getPropertiesFromExternalAPI";
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 300;
+export const revalidate = 60;
+export const dynamic = "force-static";
 
 export async function GET() {
   try {
