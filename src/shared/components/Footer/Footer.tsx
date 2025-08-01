@@ -18,8 +18,8 @@ Acreditamos que alugar um imóvel deve ser simples, seguro e justo. Oferecemos u
           <ul className="space-y-2 text-sm text-gray-400">
             <li><Link href="/" className="hover:text-white">Início</Link></li>
             <li><Link href="/guide" className="hover:text-white">Guias</Link></li>
-            <li><Link href="/" className="hover:text-white">Serviços</Link></li>
-            <li><Link href="/" className="hover:text-white">Central de Suporte</Link></li>
+            <li><Link href="/catalog" className="hover:text-white">Alugar</Link></li>
+            <li><a href="https://dommi-rent.vercel.app" target="_blank" className="hover:text-white">Anunciar</a></li>
           </ul>
         </div>
 
@@ -27,10 +27,10 @@ Acreditamos que alugar um imóvel deve ser simples, seguro e justo. Oferecemos u
         <div>
           <h3 className="text-lg font-semibold mb-4">Suporte</h3>
           <ul className="space-y-2 text-sm text-gray-400">
-            <li><Link href="/" className="hover:text-white">Central de Ajuda</Link></li>
-            <li><Link href="/" className="hover:text-white">Termos de Uso</Link></li>
-            <li><Link href="/" className="hover:text-white">Política de Privacidade</Link></li>
-            <li><Link href="/" className="hover:text-white">FAQs</Link></li>
+            <li><Link href="/help/faq" className="hover:text-white">FAQs</Link></li>
+            <li><Link href="/help/about-us" className="hover:text-white">Sobre Nós</Link></li>
+            <li><Link href="/help/terms-and-conditions" className="hover:text-white">Termos de Uso</Link></li>
+            <li><Link href="/help/support-center" className="hover:text-white">Central de Ajuda</Link></li>
           </ul>
         </div>
 
