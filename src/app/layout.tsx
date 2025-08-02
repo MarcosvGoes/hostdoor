@@ -34,7 +34,7 @@ export default function RootLayout({
       >
 
         <Navbar />
-        <main className="flex-1 mx-auto mt-16 lg:pt-24 lg:mt-0">
+        <main className="flex-1 mx-auto mt-16 lg:pt-16 lg:mt-0">
           {children}
         </main>
         <Footer />

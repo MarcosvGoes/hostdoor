@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="text-xl lg:text-3xl text-darkText font-bold text-center mt-10">Simples, <br /> confiável e segura,<br /> para quem busca praticidade</h1>
           <Button className="p-5 mx-auto justify-center flex mt-5 rounded-full" variant={"outline"}>
             <Link href="/catalog">
-              Encontre agora seu novo lar
+              Confira nosso catálogo
             </Link>
           </Button>
         </div>
