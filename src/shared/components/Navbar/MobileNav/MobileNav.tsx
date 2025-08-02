@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -104,7 +104,7 @@ export default function MobileNav() {
 
             <AccordionItem value="guide" className="border-none">
               <AccordionTrigger className="text-sm font-semibold px-3 items-center m-0">
-                Guia
+                Guias
               </AccordionTrigger>
               <AccordionContent className="mx-3 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
@@ -155,23 +155,6 @@ export default function MobileNav() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-
-
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-[60%]">
-            <Button
-              className="w-full rounded-full flex bg-blue-500 shadow-[0_1px_5px_var(--foreground)]"
-              onClick={() => setIsOpen(false)}
-            >
-              <a
-                href="https://app-dommi.vercel.app"
-                target="_blank"
-                className="font-semibold text-sm flex gap-x-2 items-center"
-              >
-                Entrar
-                <ChevronRight strokeWidth="3" />
-              </a>
-            </Button>
-          </div>
         </DropdownMenuContent>
       </DropdownMenu>
     </nav>

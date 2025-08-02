@@ -18,7 +18,7 @@ export default function PropertiesClientWrapper({ initialProperties }: { initial
       <div className="w-full">
         <PropertiesFilters onFilterChange={setFilters} />
       </div>
-      <div className="mb-10 mt-44 lg:mt-28 max-w-[90%] lg:max-w-[80%] mx-auto">
+      <div className="mb-10 mt-[180px] lg:mt-20 max-w-[90%] lg:max-w-[80%] mx-auto">
         <PropertiesListComponent properties={filteredProperties} />
       </div>
     </>

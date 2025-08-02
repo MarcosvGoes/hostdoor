@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@/shared/components/Shadcn-ui/dropdown-menu";
-import { Button } from "@/shared/components/Shadcn-ui/button";
 
 export default function DesktopNav() {
   return (
@@ -59,7 +58,7 @@ export default function DesktopNav() {
         {/* Guias */}
         <DropdownMenu>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
-            Guia <ChevronDown className="w-4 h-4" />
+            Guias <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
 
           <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">
@@ -87,21 +86,6 @@ export default function DesktopNav() {
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
-
-        {/* Botão de login */}
-        <Button
-          variant="ghost"
-          className="rounded-full cursor-pointer flex items-center gap-2 shadow-[0_1px_5px_var(--foreground)] px-4"
-        >
-          <a
-            href="https://dommi-rent.vercel.app"
-            target="_blank"
-            className="text-sm font-semibold"
-          >
-            Entrar
-          </a>
-          <ChevronRight strokeWidth="2" />
-        </Button>
       </div>
     </nav>
   );

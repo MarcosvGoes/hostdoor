@@ -29,12 +29,12 @@ function PropertiesListComponent({ properties }: Props) {
         {properties.map((property) => (
           <Card
             key={property.id}
-            className="flex cursor-pointer flex-col p-0 gap-0"
+            className="flex rounded-sm cursor-pointer flex-col p-0 gap-0"
             onClick={() => router.push(`/catalog/${property.id}`)}
           >
-            <div className="relative w-full aspect-video bg-black/5">
+            <div className="relative w-full aspect-video">
               <Carousel className="h-full w-full">
-                <CarouselContent className="h-full">
+                <CarouselContent className="h-full ml-0">
                   {property.images.length > 0 ? (
                     property.images.map((src, idx) => (
                       <CarouselItem key={idx} className="h-full w-full px-0">
@@ -43,7 +43,7 @@ function PropertiesListComponent({ properties }: Props) {
                             src={src}
                             alt={`Imagem ${idx + 1} de ${property.title}`}
                             fill
-                            className="object-cover"
+                            className="object-cover rounded-t-sm"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={idx === 0}
                           />

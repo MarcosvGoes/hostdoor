@@ -1,15 +1,16 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/components/Shadcn-ui/carousel";
 import { Card, CardContent } from "@/shared/components/Shadcn-ui/card";
-import { BedSingle, CarFront, CircleCheck, Images, MapPinned, PawPrint, Ruler, Share2, ShowerHead } from "lucide-react";
+import { BedSingle, CarFront, ChevronRight, Images, Info, PawPrint, Ruler, ShowerHead } from "lucide-react";
 import { Badge } from "@/shared/components/Shadcn-ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/shared/components/Shadcn-ui/breadcrumb";
-import { Button } from "@/shared/components/Shadcn-ui/button";
-import { toast } from "sonner";
+import { ContactOwner } from "@/features/properties/components/ContactOwnerDrawer";
+import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/Shadcn-ui/popover";
+import SharePropertyButton from "@/features/properties/components/SharePropertyButton";
 
 interface Property {
   id: string
@@ -37,7 +38,6 @@ interface Property {
 export default function PropertyDetails() {
   const params = useParams();
   const propertyId = params.id;
-  const pathname = usePathname();
   const [property, setProperty] = useState<Property | null>(null);
 
   const rent = property?.rentPrice ?? 0;
@@ -74,23 +74,6 @@ export default function PropertyDetails() {
       .catch(console.error);
   }, [propertyId]);
 
-  const handleShareClick = () => {
-    const fullUrl = `${window.location.origin}${pathname}`;
-    navigator.clipboard.writeText(fullUrl)
-      .then(() => {
-        toast(
-          <div className="flex items-center gap-2">
-            <CircleCheck color="#00c950" size={20} />
-            <span>Link copiado!</span>
-          </div>
-        );
-      })
-      .catch(err => {
-        toast.error("Erro ao copiar link");
-        console.error(err);
-      });
-  };
-
   const handleOpenMap = () => {
     const address = `${property?.street}, ${property?.houseNumber}, ${property?.neighborhood}, ${property?.city} - ${property?.state}, ${property?.cep}`;
     const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -120,14 +103,14 @@ export default function PropertyDetails() {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <div onClick={handleShareClick} className="cursor-pointer">
-          <Share2 size={16} />
+        <div className="cursor-pointer bg-accent p-2 rounded-full hover:bg-accent/50 transition duration-100">
+          <SharePropertyButton id={property.id} />
         </div>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10 w-full">
         <div className="w-full lg:flex-1 grid gap-x-4">
-          <Carousel className="h-full" id="carousel-images">
+          <Carousel className="h-full shadow-[0_3px_10px_rgb(0,0,0,0.2)]" id="carousel-images">
             <CarouselContent className="h-full">
               {property.images.length > 0 ? (
                 property.images.map((src, idx) => (
@@ -211,7 +194,7 @@ export default function PropertyDetails() {
           <div className="mt-5">
             <h1 className="text-lg font-semibold mb-2">{property.title}</h1>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 my-3 text-xs lg:text-md" id="icons-data">
+            <div className="flex flex-wrap gap-x-4 gap-y-3 my-3 text-xs lg:text-md" id="icons-data">
               <div className="flex items-center gap-1">
                 <Ruler size={16} /> <span>{property.squareMeters} m²</span>
               </div>
@@ -249,11 +232,11 @@ export default function PropertyDetails() {
             </div>
           </div>
 
-          <div className="mb-5">
+          <div className="mb-5 text-sm">
             <p>{property.description}</p>
           </div>
 
-          <div className="p-5 m-0 gap-3 flex justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)] items-center" id="location">
+          <div onClick={handleOpenMap} className="cursor-pointer p-5 m-0 gap-3 flex justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)] items-center" id="location">
             <div className="grid gap-3 w-3/5">
               <h1 className="text-xl">{property.street}</h1>
               <div className="p-0 m-0 text-sm text-muted-foreground">
@@ -262,9 +245,7 @@ export default function PropertyDetails() {
                 <span>{property.state}</span><br />
               </div>
             </div>
-            <Button className="rounded-full hover:bg-accent-foreground hover:text-muted" variant={"secondary"} onClick={handleOpenMap} >
-              <MapPinned size={24} />
-            </Button>
+              <ChevronRight size={28} strokeWidth={1} />
           </div>
         </div>
 
@@ -272,25 +253,68 @@ export default function PropertyDetails() {
           <div className="lg:sticky top-24">
             <Card className="h-fit rounded-xs shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 gap-0">
               <div className="gap-x-1 flex items-center text-xs mb-4">
-                <span>Imóvel</span>
-                <span className="text-[10px]">{property.propertyNumber}</span>
+                <span className="text-xs">Imóvel</span>
+                <span className="text-xs">{property.propertyNumber}</span>
               </div>
+
               <div className="grid gap-4">
                 <div className="flex items-center justify-between text-muted-foreground text-sm">
-                  <span>Aluguel</span>
+                  <span className="flex items-center gap-1">
+                    Aluguel
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Info className="w-4 h-4 cursor-pointer" />
+                      </PopoverTrigger>
+                      <PopoverContent className="max-w-xs text-sm">
+                        Valor definido diretamente pelo proprietário com base nas condições do imóvel e região.
+                      </PopoverContent>
+                    </Popover>
+                  </span>
                   <span>{rentPriceFormatted}</span>
                 </div>
+
                 <div className="flex items-center justify-between text-muted-foreground text-sm">
-                  <span>Condomínio</span>
+                  <span className="flex items-center gap-1">
+                    Condomínio
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Info className="w-4 h-4 cursor-pointer" />
+                      </PopoverTrigger>
+                      <PopoverContent className="max-w-xs text-sm">
+                        Valor cobrado pelo condomínio do imóvel. Pode variar de acordo com decisões internas do prédio ou complexo.
+                      </PopoverContent>
+                    </Popover>
+                  </span>
                   <span>{condominiumFormatted}</span>
                 </div>
 
                 <div className="flex items-center justify-between text-muted-foreground text-sm">
-                  <span>IPTU</span>
+                  <span className="flex items-center gap-1">
+                    IPTU
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Info className="w-4 h-4 cursor-pointer" />
+                      </PopoverTrigger>
+                      <PopoverContent className="max-w-xs text-sm">
+                        Imposto anual definido pela prefeitura referente ao imóvel.
+                      </PopoverContent>
+                    </Popover>
+                  </span>
                   <span>{IPTUFormatted}</span>
                 </div>
+
                 <div className="flex items-center justify-between text-muted-foreground text-sm">
-                  <span>Taxa de Serviço</span>
+                  <span className="flex items-center gap-1">
+                    Taxa de Serviço
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Info className="w-4 h-4 cursor-pointer" />
+                      </PopoverTrigger>
+                      <PopoverContent className="max-w-xs text-sm">
+                        Valor destinado à manutenção da plataforma, atendimento, suporte, gestão de contratos e segurança dos repasses.
+                      </PopoverContent>
+                    </Popover>
+                  </span>
                   <span>{taxFormatted}</span>
                 </div>
               </div>
@@ -302,9 +326,7 @@ export default function PropertyDetails() {
                 <span>{totalFormatted}</span>
               </div>
 
-              <Button className="mt-10 rounded-full hover:bg-accent-foreground hover:text-muted" variant="secondary">
-                Entrar em contato
-              </Button>
+              <ContactOwner email="marcosgoes.dev@gmail.com" whatsapp="5527988567724" phone="5527988567724" />
             </Card>
           </div>
         </div>
