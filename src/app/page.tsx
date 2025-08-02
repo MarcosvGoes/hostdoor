@@ -1,5 +1,6 @@
 import { Button } from "@/shared/components/Shadcn-ui/button";
 import { File, Handshake, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -29,7 +30,8 @@ export default function Home() {
             </Link>
           </Button>
         </div>
-
+        
+        <Image src="/assets/images/bgimg2.png" width={500} height={500} layout="responsive" alt="logo" />
       </section>
 
       <section className="w-full my-20 max-w-[90%] mx-auto grid gap-8 lg:grid-cols-3 lg:gap-x-80">

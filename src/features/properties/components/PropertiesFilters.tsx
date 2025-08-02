@@ -238,7 +238,7 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
 
 
       {/* Desktop Filters */}
-      <div className="hidde overflow-x-auto scrollbar-none lg:flex gap-4 items-center top-[65px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
+      <div className="hidden overflow-x-auto scrollbar-none lg:flex gap-4 items-center top-[65px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
         {/* Input texto para city, neighborhood, state */}
         <div className="relative">
           <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
