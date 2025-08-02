@@ -1,16 +1,16 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/components/Shadcn-ui/carousel";
 import { Card, CardContent } from "@/shared/components/Shadcn-ui/card";
-import { BedSingle, CarFront, ChevronRight, CircleCheck, Images, Info, PawPrint, Ruler, Share2, ShowerHead } from "lucide-react";
+import { BedSingle, CarFront, ChevronRight, Images, Info, PawPrint, Ruler, ShowerHead } from "lucide-react";
 import { Badge } from "@/shared/components/Shadcn-ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/shared/components/Shadcn-ui/breadcrumb";
-import { toast } from "sonner";
 import { ContactOwner } from "@/features/properties/components/ContactOwnerDrawer";
 import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/Shadcn-ui/popover";
+import SharePropertyButton from "@/features/properties/components/SharePropertyButton";
 
 interface Property {
   id: string
@@ -38,7 +38,6 @@ interface Property {
 export default function PropertyDetails() {
   const params = useParams();
   const propertyId = params.id;
-  const pathname = usePathname();
   const [property, setProperty] = useState<Property | null>(null);
 
   const rent = property?.rentPrice ?? 0;
@@ -75,23 +74,6 @@ export default function PropertyDetails() {
       .catch(console.error);
   }, [propertyId]);
 
-  const handleShareClick = () => {
-    const fullUrl = `${window.location.origin}${pathname}`;
-    navigator.clipboard.writeText(fullUrl)
-      .then(() => {
-        toast(
-          <div className="flex items-center gap-2">
-            <CircleCheck color="#00c950" size={20} />
-            <span>Link copiado!</span>
-          </div>
-        );
-      })
-      .catch(err => {
-        toast.error("Erro ao copiar link");
-        console.error(err);
-      });
-  };
-
   const handleOpenMap = () => {
     const address = `${property?.street}, ${property?.houseNumber}, ${property?.neighborhood}, ${property?.city} - ${property?.state}, ${property?.cep}`;
     const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -121,8 +103,8 @@ export default function PropertyDetails() {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <div onClick={handleShareClick} className="cursor-pointer bg-accent p-2 rounded-full hover:bg-accent/50 transition duration-100">
-          <Share2 size={16} />
+        <div className="cursor-pointer bg-accent p-2 rounded-full hover:bg-accent/50 transition duration-100">
+          <SharePropertyButton id={property.id} />
         </div>
       </div>
 
