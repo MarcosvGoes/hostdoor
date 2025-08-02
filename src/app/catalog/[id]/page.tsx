@@ -33,6 +33,11 @@ interface Property {
   cep: string
   allowsPet: boolean
   images: string[]
+    user: {
+    email: string;
+    phoneNumber: string;
+    name: string;
+  };
 }
 
 export default function PropertyDetails() {
@@ -245,7 +250,7 @@ export default function PropertyDetails() {
                 <span>{property.state}</span><br />
               </div>
             </div>
-              <ChevronRight size={28} strokeWidth={1} />
+            <ChevronRight size={28} strokeWidth={1} />
           </div>
         </div>
 
@@ -326,7 +331,14 @@ export default function PropertyDetails() {
                 <span>{totalFormatted}</span>
               </div>
 
-              <ContactOwner email="marcosgoes.dev@gmail.com" whatsapp="5527988567724" phone="5527988567724" />
+              {property && property.user ? (
+                <ContactOwner
+                  email={property.user.email}
+                  phone={property.user.phoneNumber}
+                  whatsapp={property.user.phoneNumber}
+                />
+              ) : null}
+              
             </Card>
           </div>
         </div>
