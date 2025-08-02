@@ -54,23 +54,23 @@ export default function SharePropertyButton({ id }: SharePropertyButtonProps) {
     <div className="flex flex-col items-center">
       <div className="flex gap-4 justify-center p-4 flex-wrap">
         <FacebookShareButton url={shareUrl} title={shareText}>
-          <FacebookIcon size={40} round />
+          <FacebookIcon size={30} round />
         </FacebookShareButton>
 
         <WhatsappShareButton url={shareUrl} title={shareText}>
-          <WhatsappIcon size={40} round />
+          <WhatsappIcon size={30} round />
         </WhatsappShareButton>
 
         <TelegramShareButton url={shareUrl} title={shareText}>
-          <TelegramIcon size={40} round />
+          <TelegramIcon size={30} round />
         </TelegramShareButton>
 
         <RedditShareButton url={shareUrl} title={shareText}>
-          <RedditIcon size={40} round />
+          <RedditIcon size={30} round />
         </RedditShareButton>
 
         <EmailShareButton url={shareUrl} subject="Veja esse imóvel" body={shareText}>
-          <EmailIcon size={40} round />
+          <EmailIcon size={30} round />
         </EmailShareButton>
       </div>
       <div className="flex items-center gap-x-2 mt-4 w-full px-4">
