@@ -33,12 +33,23 @@ export function ContactOwner({ email, phone, whatsapp }: ContactOwnerProps) {
         Ao entrar em contato, você estará falando diretamente com o proprietário do imóvel.
       </p>
       <div className="grid gap-2">
-        <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer">
+        <a
+          href={`https://wa.me/${whatsapp}?text=${encodeURIComponent("Olá! Vi seu imóvel na Dommi e gostaria de saber mais detalhes.")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button variant="outline" className="w-full justify-start py-5">
-            <Image width={15} height={15} className="mr-1" alt="whatsapp-icon" src="/assets/icons/whatsapp-icon.svg" />
+            <Image
+              width={18}
+              height={18}
+              className="mr-1 -ml-1"
+              alt="whatsapp-icon"
+              src="/assets/icons/whatsapp-icon.svg"
+            />
             WhatsApp
           </Button>
         </a>
+
         <a href={`tel:${phone}`}>
           <Button variant="outline" className="w-full justify-start py-5">
             <Phone className="mr-2 h-4 w-4" />
