@@ -60,7 +60,8 @@ function PropertiesListComponent({ properties }: Props) {
                               <Badge className="text-foreground bg-background/80">Visualizado</Badge>
                             )}
                             <Badge className="text-foreground bg-background/80">
-                              <Images size={12} /> {property.images.length}
+                              <Images size={12} /> 
+                              <span className="font-semibold">{`${(idx + 1).toString()} / ${property.images.length}`}</span>
                             </Badge>
                           </div>
                         </CardContent>
