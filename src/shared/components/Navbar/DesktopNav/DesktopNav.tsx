@@ -50,6 +50,7 @@ export default function DesktopNav() {
               <DropdownItem external href="https://dommi-rent.vercel.app/property">
                 Cadastre seu imóvel
               </DropdownItem>
+              <DropdownItem href="/solutions">Soluções</DropdownItem>
               <DropdownItem href="/guide/owner-guide">Ajuda</DropdownItem>
             </div>
           </DropdownMenuContent>
@@ -66,7 +67,7 @@ export default function DesktopNav() {
             <div className="gap-1 grid mt-2">
               <DropdownItem href="/guide/tenant-guide">Guia do Inquilino</DropdownItem>
               <DropdownItem href="/guide/owner-guide">Guia do Proprietário</DropdownItem>
-              <DropdownItem href="/price-guide">Guia de Preços</DropdownItem>
+              <DropdownItem href="/guide/price-guide">Guia de Preços</DropdownItem>
             </div>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -80,9 +81,11 @@ export default function DesktopNav() {
           <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">
             <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Dúvidas</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
-              <DropdownItem href="/catalog">Catálogo de imóveis</DropdownItem>
-              <DropdownItem href="/guide/tenant-guide">Guia do inquilino</DropdownItem>
-              <DropdownItem href="/terms-and-conditions">Termos & Condições</DropdownItem>
+              <DropdownItem href="/help/faq">Dúvidas frequentes</DropdownItem>
+              <DropdownItem href="/help/support-center">Central de Suporte</DropdownItem>
+              <DropdownItem href="/help/terms-and-conditions">Termos & Condições</DropdownItem>
+              <DropdownItem href="/help/privacy-policy">Política de Privacidade</DropdownItem>
+              <DropdownItem href="/help/about-us">Sobre nós</DropdownItem>
             </div>
           </DropdownMenuContent>
         </DropdownMenu>

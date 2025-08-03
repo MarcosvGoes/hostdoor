@@ -1,13 +1,15 @@
+import Link from "next/link";
+
 export default function TermsAndConditions() {
     return (
         <main>
-            <section className="max-w-4xl mx-auto p-6 text-sm">
+            <section className="max-w-[90%] mx-auto py-5 text-sm">
                 <div className="mb-10 mt-4 grid gap-2">
-                    <strong className="text-foreground text-base font-semibold">Termos e condições da plataforma e serviços Dommi</strong>
+                    <strong className="text-foreground text-2xl font-semibold">Termos e condições da plataforma e serviços Dommi</strong>
                     <span>Última alteração: {'22/03/2025'}</span>
                 </div>
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">1. Introdução</h2>
+                    <h2 className="text-xl font-semibold mb-4">1. Introdução</h2>
                     <p className="mb-4">
                         Estes Termos de Uso (&quot;Termos&quot;) regulam o acesso e a utilização da plataforma <strong className="text-foreground">Dommi</strong> (&quot;Plataforma&quot;), que oferece uma solução digital para facilitar contratos de aluguel entre particulares. A Dommi não é uma imobiliária, e não atua como fiadora ou garantidora.
                     </p>
@@ -17,7 +19,7 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">2. Definições</h2>
+                    <h2 className="text-xl font-semibold mb-4">2. Definições</h2>
                     <ul className="space-y-2 list-none">
                         <li><strong className="text-foreground font-semibold">Dommi</strong>: Plataforma digital que intermedeia aluguéis de imóveis.</li>
                         <li><strong className="text-foreground font-semibold">Proprietário</strong>: Pessoa física ou jurídica que cadastra um imóvel na Plataforma para locação.</li>
@@ -29,7 +31,7 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">3. Funcionalidades da Plataforma</h2>
+                    <h2 className="text-xl font-semibold mb-4">3. Funcionalidades da Plataforma</h2>
                     <p className="text-foreground mb-4">A Dommi oferece os seguintes serviços:</p>
                     <ol className="list-none">
                         <li className="mb-2">
@@ -64,9 +66,8 @@ export default function TermsAndConditions() {
                             <ul className="space-y-2 list-none ml-1">
                                 <li>O Proprietário pode definir:
                                     <ul className="space-y-1 list-none">
-                                        <li>Prazo mínimo de contrato.</li>
-                                        <li>Repasse do IPTU ao Inquilino (opcional).</li>
-                                        <li>Diferentes valores conforme forma de pagamento (ex.: desconto à vista).</li>
+                                        <li>Prazo mínimo e máximo de contrato.</li>
+                                        <li>Quantidade de aluguéis a ser cobrado como caução. Até o máximo de 3.</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -75,7 +76,7 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">4. Responsabilidades</h2>
+                    <h2 className="text-xl font-semibold mb-4">4. Responsabilidades</h2>
                     <ol className="list-none">
                         <li className="mb-2">
                             <strong className="text-foreground font-semibold">Do Proprietário</strong>:
@@ -83,6 +84,7 @@ export default function TermsAndConditions() {
                                 <li>Garantir a veracidade das informações do imóvel cadastrado.</li>
                                 <li>Cumprir as obrigações previstas no Contrato de Locação.</li>
                                 <li>Autorizar a Dommi a intermediar pagamentos e repasses.</li>
+                                <li>Realizar a assinatura do contrato.</li>
                             </ul>
                         </li>
                         <li className="mb-2">
@@ -90,6 +92,7 @@ export default function TermsAndConditions() {
                             <ul className="space-y-1 list-none ml-1">
                                 <li>Pagar o aluguel e cauções dentro dos prazos estipulados.</li>
                                 <li>Cumprir as cláusulas do Contrato de Locação.</li>
+                                <li>Realizar a assinatura do contrato.</li>
                             </ul>
                         </li>
                         <li className="mb-2">
@@ -105,7 +108,7 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">5. Taxas e Comissões</h2>
+                    <h2 className="text-xl font-semibold mb-4">5. Taxas e Comissões</h2>
                     <ul className="space-y-2 list-none">
                         <li>
                             <strong className="text-foreground font-semibold">Taxa de Intermediação</strong>:
@@ -123,14 +126,14 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">6. Privacidade e Proteção de Dados</h2>
+                    <h2 className="text-xl font-semibold mb-4">6. Privacidade e Proteção de Dados</h2>
                     <p className="mb-4">
-                        A Dommi trata os dados pessoais dos Usuários em conformidade com a <strong className="text-foreground">Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>. Os dados coletados são utilizados exclusivamente para viabilizar os serviços da Plataforma e não serão compartilhados com terceiros sem consentimento prévio. Para mais informações, consulte nossa <a href="/privacy-policy" className="underline text-primary">Política de Privacidade</a>.
+                        A Dommi trata os dados pessoais dos Usuários em conformidade com a <strong className="text-foreground">Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</strong>. Os dados coletados são utilizados exclusivamente para viabilizar os serviços da Plataforma e não serão compartilhados com terceiros sem consentimento prévio. Para mais informações, consulte nossa <Link href="/help/privacy-policy" className="underline text-primary">Política de Privacidade</Link>.
                     </p>
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">7. Propriedade Intelectual</h2>
+                    <h2 className="text-xl font-semibold mb-4">7. Propriedade Intelectual</h2>
                     <ul className="space-y-2 list-none">
                         <li>A Plataforma Dommi, incluindo seu design, funcionalidades e conteúdo, é propriedade exclusiva da Dommi.</li>
                         <li>É proibida a reprodução, cópia ou uso indevido de qualquer elemento da Plataforma sem autorização prévia.</li>
@@ -138,7 +141,7 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">8. Rescisão e Suspensão</h2>
+                    <h2 className="text-xl font-semibold mb-4">8. Rescisão e Suspensão</h2>
                     <p className="mb-4">
                         A Dommi reserva-se o direito de suspender ou encerrar contas de Usuários que:
                     </p>
@@ -151,15 +154,15 @@ export default function TermsAndConditions() {
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">9. Disposições Gerais</h2>
+                    <h2 className="text-xl font-semibold mb-4">9. Disposições Gerais</h2>
                     <ul className="space-y-2 list-none">
                         <li>Estes Termos são regidos pelas leis brasileiras.</li>
-                        <li>Eventuais disputas serão resolvidas no foro da comarca de São Paulo/SP, com exclusão de qualquer outro.</li>
+                        <li>Eventuais disputas serão resolvidas no foro da comarca do respectivo estado.</li>
                     </ul>
                 </div>
 
                 <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-4">10. Aceitação</h2>
+                    <h2 className="text-xl font-semibold mb-4">10. Aceitação</h2>
                     <p className="mb-4">
                         Ao utilizar a Plataforma Dommi, você declara estar ciente e de acordo com todos os termos e condições aqui descritos.
                     </p>

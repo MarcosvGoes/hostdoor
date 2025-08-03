@@ -66,7 +66,7 @@ export default function MobileNav() {
               <AccordionTrigger className="text-sm font-semibold px-3 items-center">
                 Alugar
               </AccordionTrigger>
-              <AccordionContent className="mx-3 -mt-2">
+              <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/catalog" onClick={() => setIsOpen(false)}>
                     Catálogo de imóveis
@@ -86,11 +86,16 @@ export default function MobileNav() {
               <AccordionTrigger className="text-sm font-semibold px-3 items-center m-0">
                 Anunciar
               </AccordionTrigger>
-              <AccordionContent className="mx-3 -mt-2">
+              <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <a href="https://dommi-rent.vercel.app" target="_blank" onClick={() => setIsOpen(false)}>
                     Cadastre seu imóvel
                   </a>
+                </Button>
+                <Button asChild variant="link" className="block text-left w-full font-medium">
+                  <Link href="/solutions" onClick={() => setIsOpen(false)}>
+                    Soluções
+                  </Link>
                 </Button>
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/guide/owner-guide" onClick={() => setIsOpen(false)}>
@@ -106,7 +111,7 @@ export default function MobileNav() {
               <AccordionTrigger className="text-sm font-semibold px-3 items-center m-0">
                 Guias
               </AccordionTrigger>
-              <AccordionContent className="mx-3 -mt-2">
+              <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/guide/tenant-guide" onClick={() => setIsOpen(false)}>
                     Guia do Inquilino
@@ -131,7 +136,7 @@ export default function MobileNav() {
               <AccordionTrigger className="text-sm font-semibold px-3 items-center m-0">
                 Ajuda
               </AccordionTrigger>
-              <AccordionContent className="mx-3 -mt-2">
+              <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/help/faq" onClick={() => setIsOpen(false)}>
                     Dúvidas frequentes
@@ -145,6 +150,11 @@ export default function MobileNav() {
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/help/terms-and-conditions" onClick={() => setIsOpen(false)}>
                     Termos de Uso
+                  </Link>
+                </Button>
+                <Button asChild variant="link" className="block text-left w-full font-medium">
+                  <Link href="/help/terms-and-conditions" onClick={() => setIsOpen(false)}>
+                    Política de Privacidade
                   </Link>
                 </Button>
                 <Button asChild variant="link" className="block text-left w-full font-medium">
