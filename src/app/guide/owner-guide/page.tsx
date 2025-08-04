@@ -10,7 +10,7 @@ export default function OwnerGuide() {
 
             <div className="space-y-5">
                 <p className="font-semibold">
-                    Cadastre, gerencie e alugue seus imóveis de forma prática e segura com a Dommi.
+                    Cadastre, gerencie e alugue seus imóveis de forma prática e segura com a HostDoor.
                 </p>
 
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
@@ -28,8 +28,8 @@ export default function OwnerGuide() {
                             <div className="grid gap-5">
                                 <p>
                                     Para criar sua conta de proprietário basta acessar{" "}
-                                    <a href="https://dommi-rent.vercel.app" target="_blank" className="underline">
-                                        <strong>dommi-rent.vercel.app</strong>
+                                    <a href="https://app.hostdoor.com.br" target="_blank" className="underline">
+                                        <strong>app.hostdoor.com.br</strong>
                                     </a>, clicar em Criar conta, inserir os dados solicitados, verificar seu e-mail e pronto, sua conta já está criada.
                                 </p>
                                 <p>
@@ -53,8 +53,8 @@ export default function OwnerGuide() {
                             <div className="grid gap-5">
                                 <p>
                                     Acesse sua conta em{" "}
-                                    <a href="https://dommi-rent.vercel.app" target="_blank" className="underline">
-                                        <strong>dommi-rent.vercel.app</strong>
+                                    <a href="https://app.hostdoor.com.br" target="_blank" className="underline">
+                                        <strong>app.hostdoor.com.br</strong>
                                     </a>, vá até a aba <strong>Imóveis</strong> e clique em <strong>Adicionar Imóvel</strong>.
                                 </p>
                                 <p>
@@ -96,7 +96,7 @@ export default function OwnerGuide() {
                             </DialogTitle>
                             <div className="grid gap-5">
                                 <p>
-                                    Após acordo com o inquilino, você pode gerar o contrato dentro da Dommi usando o sistema de geração automática.
+                                    Após acordo com o inquilino, você pode gerar o contrato dentro da HostDoor usando o sistema de geração automática.
                                 </p>
                                 <p>
                                     A assinatura é digital, com validade jurídica, e as partes são notificadas por e-mail para assinar com segurança.
@@ -127,7 +127,7 @@ export default function OwnerGuide() {
                                     Quando o inquilino realiza o pagamento pela plataforma, o valor é repassado automaticamente para sua conta bancária cadastrada.
                                 </p>
                                 <p>
-                                    Sem atrasos, sem intermediários. A Dommi cuida da cobrança e da segurança da transação.
+                                    Sem atrasos, sem intermediários. A HostDoor cuida da cobrança e da segurança da transação.
                                 </p>
                             </div>
                         </DialogContent>
@@ -135,7 +135,7 @@ export default function OwnerGuide() {
                 </ul>
 
                 <p className="italic text-sm text-gray-500">
-                    Lembre-se: a Dommi está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
+                    Lembre-se: a HostDoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
                 </p>
             </div>
         </main>

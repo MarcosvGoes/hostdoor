@@ -39,13 +39,13 @@ export default function Home() {
           <h1 className="font-semibold flex gap-x-2 items-center lg:text-xl">
             <ShieldCheck strokeWidth={3} /> Segurança
           </h1>
-          <p className="text-xs lg:text-base mt-2">A Dommi oferece todo suporte e segurança tanto para o inquilino quanto para o proprietário.</p>
+          <p className="text-xs lg:text-base mt-2">A HostDoor oferece todo suporte e segurança tanto para o inquilino quanto para o proprietário.</p>
         </div>
         <div>
           <h1 className="font-semibold flex gap-x-2 items-center lg:text-xl">
             <File strokeWidth={3} /> Facilidade
           </h1>
-          <p className="text-xs lg:text-base mt-2">A Dommi gera contrato automático, assinatura digital e pagamento automático, para que possa apenas aproveitar seu novo lar.</p>
+          <p className="text-xs lg:text-base mt-2">A HostDoor gera contrato automático, assinatura digital e pagamento automático, para que possa apenas aproveitar seu novo lar.</p>
         </div>
         <div>
           <h1 className="font-semibold flex gap-x-2 items-center lg:text-xl">

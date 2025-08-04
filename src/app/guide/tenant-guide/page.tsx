@@ -10,7 +10,7 @@ export default function TenantGuide() {
 
       <div className="space-y-5">
         <p className="font-semibold">
-          Seja bem-vindo à Dommi! Aqui explicamos tudo o que você precisa saber para alugar com segurança e facilidade.
+          Seja bem-vindo à HostDoor! Aqui explicamos tudo o que você precisa saber para alugar com segurança e facilidade.
         </p>
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
@@ -28,8 +28,8 @@ export default function TenantGuide() {
               <div className="grid gap-5">
                 <p>
                   Acesse{" "}
-                  <a href="https://dommi-rent.vercel.app" target="_blank" className="underline">
-                    <strong>dommi-rent.vercel.app</strong>
+                  <a href="https://app.hostdoor.com.br" target="_blank" className="underline">
+                    <strong>app.hostdoor.com.br</strong>
                   </a>{" "}
                   e utilize os filtros por localização, valor, número de quartos, tipo de imóvel e outras preferências.
                 </p>
@@ -145,7 +145,7 @@ export default function TenantGuide() {
               </DialogTitle>
               <div className="grid gap-5">
                 <p>
-                  A Dommi oferece suporte contínuo para te ajudar em qualquer necessidade durante sua locação.
+                  A HostDoor oferece suporte contínuo para te ajudar em qualquer necessidade durante sua locação.
                 </p>
                 <p>
                   Entre em contato conosco por e-mail ou WhatsApp para atendimento sempre que precisar.
@@ -156,7 +156,7 @@ export default function TenantGuide() {
         </ul>
 
         <p className="italic text-sm text-gray-500">
-          Lembre-se: a Dommi está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
+          Lembre-se: a HostDoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
         </p>
       </div>
     </main>

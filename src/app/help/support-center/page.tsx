@@ -28,7 +28,7 @@ export default function SupportCenter() {
                         <p>Tempo de resposta: até 24 horas úteis.</p>
                     </CardContent>
                     <Button asChild variant="secondary" className="hover:cursor-pointer">
-                        <a href="mailto:suporte@dommi.com" target="_blank" rel="noopener noreferrer">
+                        <a href="mailto:suporte@hostdoor.com" target="_blank" rel="noopener noreferrer">
                             Enviar E-mail
                         </a>
                     </Button>

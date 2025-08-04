@@ -20,7 +20,7 @@ export default function Solutions() {
 
         <div className="text-sm font-semibold text-darkText grid gap-y-2">
           <p>
-            Com a Dommi, você tem a tranquilidade de uma gestão 100% digital: cuidamos da cobrança,
+            Com a HostDoor, você tem a tranquilidade de uma gestão 100% digital: cuidamos da cobrança,
             repasse, contratos, caução e muito mais. Segurança, agilidade e praticidade em um só lugar.
           </p>
         </div>

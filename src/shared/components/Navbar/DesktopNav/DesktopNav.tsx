@@ -10,17 +10,14 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@/shared/components/Shadcn-ui/dropdown-menu";
+import { AppDomain } from "@/utils/routes";
 
 export default function DesktopNav() {
   return (
     <nav className="fixed mx-auto w-full h-16 px-10 flex items-center justify-between backdrop-blur-lg bg-background/50 shadow-[0_1px_5px_var(--foreground)] z-50">
-      <Link style={{ position: "relative", width: 80, height: 40 }} href="/">
-        <Image
-          src="/assets/logo/text-logo.png"
-          alt="Logo"
-          fill
-          style={{ objectFit: "contain" }}
-        />
+      <Link href="/" className="flex h-auto items-center gap-x-1 text-xl font-extrabold">
+        <Image width={25} height={25} alt="logo hostdoor" src="/assets/logo/hostdoor-logo-light.png"/>
+        <span className="text-xl">HostDoor</span>
       </Link>
 
       <div className="flex items-center gap-4">
@@ -31,7 +28,7 @@ export default function DesktopNav() {
             Alugar <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5">
-            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Alugue com a Dommi</DropdownMenuLabel>
+            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Alugue com a HostDoor</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
               <DropdownItem href="/catalog">Catálogo de imóveis</DropdownItem>
               <DropdownItem href="/guide/tenant-guide">Ajuda</DropdownItem>
@@ -45,9 +42,9 @@ export default function DesktopNav() {
             Anunciar <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5">
-            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Anuncie com a Dommi</DropdownMenuLabel>
+            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Anuncie com a HostDoor</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
-              <DropdownItem external href="https://dommi-rent.vercel.app/property">
+              <DropdownItem external href={AppDomain}>
                 Cadastre seu imóvel
               </DropdownItem>
               <DropdownItem href="/solutions">Soluções</DropdownItem>

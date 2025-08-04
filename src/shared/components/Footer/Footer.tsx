@@ -1,3 +1,4 @@
+import { AppDomain } from "@/utils/routes";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Coluna 1 - Sobre */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Dommi</h3>
+          <h3 className="text-lg font-semibold mb-4">HostDoor</h3>
           <p className="text-sm text-gray-400">
 Acreditamos que alugar um imóvel deve ser simples, seguro e justo. Oferecemos uma alternativa digital às imobiliárias tradicionais, sem taxas abusivas e com total transparência para inquilinos e proprietários.          </p>
         </div>
@@ -19,7 +20,7 @@ Acreditamos que alugar um imóvel deve ser simples, seguro e justo. Oferecemos u
             <li><Link href="/" className="hover:text-white">Início</Link></li>
             <li><Link href="/guide" className="hover:text-white">Guias</Link></li>
             <li><Link href="/catalog" className="hover:text-white">Alugar</Link></li>
-            <li><a href="https://dommi-rent.vercel.app" target="_blank" className="hover:text-white">Anunciar</a></li>
+            <li><a href={AppDomain} target="_blank" className="hover:text-white">Anunciar</a></li>
           </ul>
         </div>
 
@@ -56,7 +57,7 @@ Acreditamos que alugar um imóvel deve ser simples, seguro e justo. Oferecemos u
 
       {/* Rodapé inferior */}
       <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} <span className="font-semibold text-gray-300">Dommi</span>. Todos os direitos reservados.
+        © {new Date().getFullYear()} <span className="font-semibold text-gray-300">HostDoor</span>. Todos os direitos reservados.
       </div>
     </footer>
   );

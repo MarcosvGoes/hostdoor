@@ -1,6 +1,6 @@
 {
-  "name": "Dommi",
-  "short_name": "Dommi",
+  "name": "HostDoor",
+  "short_name": "HD",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Merriweather } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "../shared/styles/globals.css";
 import Navbar from "@/shared/components/Navbar/Navbar";
 import Footer from "@/shared/components/Footer/Footer";
 import { Toaster } from "sonner";
 
-const merriweather = Merriweather({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ['300', '400', '700', '900']
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 });
 
 export const metadata: Metadata = {
-  title: "Dommi",
-  description: "Dommi",
+  title: "HostDoor",
+  description: "HostDoor",
 };
 
 export default function RootLayout({
@@ -26,11 +26,11 @@ export default function RootLayout({
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      <meta name="apple-mobile-web-app-title" content="Dommi" />
+      <meta name="apple-mobile-web-app-title" content="HostDoor" />
       <link rel="manifest" href="/site.webmanifest" />
-
+      
       <body
-        className={`${merriweather.className} antialiased`}
+        className={`${poppins.className} antialiased`}
       >
 
         <Navbar />

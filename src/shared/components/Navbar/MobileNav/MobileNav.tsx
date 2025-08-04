@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import {
   DropdownMenu,
@@ -16,6 +15,8 @@ import {
   AccordionTrigger,
 } from "@/shared/components/Shadcn-ui/accordion";
 import { Button } from "@/shared/components/Shadcn-ui/button";
+import Image from "next/image";
+import { AppDomain } from "@/utils/routes";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,12 +44,12 @@ export default function MobileNav() {
 
   return (
     <nav
-      className={`shadow-[0_1px_5px_var(--foreground)] fixed h-16 justify-between flex items-center w-full px-6 bg-background z-50 border-none transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      }`}
+      className={`shadow-[0_1px_5px_var(--foreground)] fixed h-16 justify-between flex items-center w-full px-6 bg-background z-50 border-none transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
+        }`}
     >
-      <Link href="/" className="flex h-auto items-center gap-x-2">
-        <Image src="/assets/logo/text-logo.png" width={80} height={80} alt="Logo" />
+      <Link href="/" className="flex h-auto items-center gap-x-1 text-xl font-extrabold">
+        <Image width={25} height={25} alt="logo hostdoor" src="/assets/logo/hostdoor-logo-light.png"/>
+        <span className="text-xl">HostDoor</span>
       </Link>
 
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -88,7 +89,7 @@ export default function MobileNav() {
               </AccordionTrigger>
               <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
-                  <a href="https://dommi-rent.vercel.app" target="_blank" onClick={() => setIsOpen(false)}>
+                  <a href={AppDomain} target="_blank" onClick={() => setIsOpen(false)}>
                     Cadastre seu imóvel
                   </a>
                 </Button>

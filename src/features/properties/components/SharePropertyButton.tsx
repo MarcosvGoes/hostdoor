@@ -23,13 +23,14 @@ import {
 import { Copy, CopyCheck, Share2 } from "lucide-react";
 import { Input } from "@/shared/components/Shadcn-ui/input";
 import { toast } from "sonner";
+import { Domain } from "@/utils/routes";
 
 interface SharePropertyButtonProps {
   id: string;
 }
 
 export default function SharePropertyButton({ id }: SharePropertyButtonProps) {
-  const [shareUrl, setShareUrl] = useState("https://dommi-one.vercel.app");
+  const [shareUrl, setShareUrl] = useState(Domain);
   const [copied, setCopied] = useState(false);
   const shareText = "Dá uma olhada nesse imóvel que encontrei!";
 

@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4 text-sm">
                 <h2 className="font-semibold">1. Quem somos</h2>
                 <p>
-                    A Dommi (“nós”) é uma plataforma digital especializada na gestão de locação de imóveis. Levamos a sério a proteção dos seus dados pessoais conforme a
+                    A HostDoor (“nós”) é uma plataforma digital especializada na gestão de locação de imóveis. Levamos a sério a proteção dos seus dados pessoais conforme a
                     Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018).
                 </p>
 
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
                 <h2 className="font-semibold">9. Contato</h2>
                 <p>
                     Caso queira exercer seus direitos ou esclarecer dúvidas, entre em contato conosco:<br />
-                    <strong>E‑mail:</strong> <a href="mailto:dommi@gmail.com">dommi@gmail.com</a><br />
+                    <strong>E‑mail:</strong> <a href="mailto:hostdoor@gmail.com">hostdoor@gmail.com</a><br />
                     <strong>Telefone:</strong>
                     <a href={`tel:27988567724`}>
                         (27) 98856-7724

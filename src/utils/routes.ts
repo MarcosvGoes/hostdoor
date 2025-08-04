@@ -1,1 +1,2 @@
-export const AppDomain = "https://dommi-rent.vercel.app"
+export const Domain = "https://hostdoor.com.br"
+export const AppDomain = "https://app.hostdoor.com.br"
