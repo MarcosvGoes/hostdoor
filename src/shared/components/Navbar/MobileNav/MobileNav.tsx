@@ -154,7 +154,7 @@ export default function MobileNav() {
                   </Link>
                 </Button>
                 <Button asChild variant="link" className="block text-left w-full font-medium">
-                  <Link href="/help/terms-and-conditions" onClick={() => setIsOpen(false)}>
+                  <Link href="/help/privacy-policy" onClick={() => setIsOpen(false)}>
                     Política de Privacidade
                   </Link>
                 </Button>
