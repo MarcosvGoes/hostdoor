@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
                 <h2 className="font-semibold">9. Contato</h2>
                 <p>
                     Caso queira exercer seus direitos ou esclarecer dúvidas, entre em contato conosco:<br />
-                    <strong>E‑mail:</strong> <a href="mailto:hostdoor@gmail.com">hostdoor@gmail.com</a><br />
+                    <strong>E‑mail:</strong> <a href="mailto:hostdoorbr@gmail.com">hostdoorbr@gmail.com</a><br />
                     <strong>Telefone:</strong>
                     <a href={`tel:27988567724`}>
                         (27) 98856-7724

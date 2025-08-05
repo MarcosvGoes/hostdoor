@@ -28,11 +28,8 @@ export default function RootLayout({
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <meta name="apple-mobile-web-app-title" content="HostDoor" />
       <link rel="manifest" href="/site.webmanifest" />
-      
-      <body
-        className={`${poppins.className} antialiased`}
-      >
 
+      <body className={`${poppins.className} antialiased min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-1 mx-auto mt-16 lg:pt-16 lg:mt-0">
           {children}
