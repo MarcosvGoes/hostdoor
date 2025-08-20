@@ -1,4 +1,4 @@
-import { AppDomain, localhostDomain } from "@/utils/routes";
+import { appDomain, localhostDomain } from "@/utils/routes";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
 
   const baseUrl = process.env.NODE_ENV === "development"
     ? localhostDomain
-    : AppDomain;
+    : appDomain;
 
   const res = await fetch(`${baseUrl}/api/properties/${id}`, {
     headers: {

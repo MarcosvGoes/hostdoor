@@ -116,7 +116,7 @@ function PropertiesListComponent({ properties }: Props) {
               <div>
                 <p className="text-base font-semibold mt-1">R$ {property.rentPrice.toLocaleString()} Aluguel</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {(property.iptu + property.condominium + property.rentPrice).toLocaleString("pt-BR", {
+                  {(property.iptu + property.condominium + property.rentPrice + (property.rentPrice * 5/100)).toLocaleString("pt-BR", {
                     style: "currency",
                     currency: "BRL",
                   })} total
