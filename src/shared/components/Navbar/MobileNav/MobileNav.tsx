@@ -16,7 +16,7 @@ import {
 } from "@/shared/components/Shadcn-ui/accordion";
 import { Button } from "@/shared/components/Shadcn-ui/button";
 import Image from "next/image";
-import { AppDomain } from "@/utils/routes";
+import { appDomain } from "@/utils/routes";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,7 +89,7 @@ export default function MobileNav() {
               </AccordionTrigger>
               <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
-                  <a href={AppDomain} target="_blank" onClick={() => setIsOpen(false)}>
+                  <a href={appDomain} target="_blank" onClick={() => setIsOpen(false)}>
                     Cadastre seu imóvel
                   </a>
                 </Button>
