@@ -148,6 +148,11 @@ export default function MobileNav() {
                     Central de Suporte
                   </a>
                 </Button>
+                 <Button asChild variant="link" className="block text-left w-full font-medium">
+                  <a href="/help/rules" onClick={() => setIsOpen(false)}>
+                    Regras de locação
+                  </a>
+                </Button>
                 <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/help/terms-and-conditions" onClick={() => setIsOpen(false)}>
                     Termos de Uso
