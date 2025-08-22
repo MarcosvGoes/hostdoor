@@ -16,7 +16,7 @@ export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
 
   if (!res.ok) {
     const errorText = await res.text();
-    throw new Error(`Erro ao buscar propriedades: ${res.status} - ${errorText}`);
+    throw new Error(`Erro ao buscar propriedades:  ${res.status} - ${errorText}`);
   }
 
   return res.json();
