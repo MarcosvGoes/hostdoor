@@ -4,11 +4,7 @@ import { appDomain, localhostAppDomain } from "@/utils/routes";
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
   const res = await fetch(
-<<<<<<< HEAD
-    `${process.env.NODE_ENV === "development" ? localhostAppDomain : `${appDomain}`}/api/properties`,
-=======
-    `${process.env.NODE_ENV === "development" ? appDomain: `${localhostAppDomain }`}/api/properties`,
->>>>>>> develop
+    `${process.env.NODE_ENV === "development" ? `${appDomain}/api/properties` : `${localhostAppDomain }`}/api/properties`,
     {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
