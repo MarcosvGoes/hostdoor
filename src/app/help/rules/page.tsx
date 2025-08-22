@@ -572,7 +572,7 @@ export default function Rules() {
                         rel="noopener noreferrer"
                         className="text-blue-600 underline"
                     >
-                        WhatsApp
+                        WhatsApp 
                     </a>.
                 </p>
             </div>
