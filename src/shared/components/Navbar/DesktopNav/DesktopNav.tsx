@@ -80,6 +80,7 @@ export default function DesktopNav() {
             <div className="gap-1 grid mt-2">
               <DropdownItem href="/help/faq">Dúvidas frequentes</DropdownItem>
               <DropdownItem href="/help/support-center">Central de Suporte</DropdownItem>
+              <DropdownItem href="/help/rules">Regras de Locação</DropdownItem>
               <DropdownItem href="/help/terms-and-conditions">Termos & Condições</DropdownItem>
               <DropdownItem href="/help/privacy-policy">Política de Privacidade</DropdownItem>
               <DropdownItem href="/help/about-us">Sobre nós</DropdownItem>

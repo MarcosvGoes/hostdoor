@@ -4,7 +4,7 @@ import { appDomain, localhostAppDomain } from "@/utils/routes";
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
   const res = await fetch(
-    `${process.env.NODE_ENV === "development" ? localhostAppDomain : `${appDomain}`}/api/properties`,
+    `${process.env.NODE_ENV === "development" ? `${localhostAppDomain}/api/properties` : `${appDomain}`}/api/properties`,
     {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
@@ -16,7 +16,7 @@ export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
 
   if (!res.ok) {
     const errorText = await res.text();
-    throw new Error(`Erro ao buscar propriedades: ${res.status} - ${errorText}`);
+    throw new Error(`Erro ao buscar propriedades:  ${res.status} - ${errorText}`);
   }
 
   return res.json();

@@ -15,7 +15,7 @@ export default function PropertiesClientWrapper({ initialProperties }: { initial
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-screen">
         <PropertiesFilters onFilterChange={setFilters} />
       </div>
       <div className="mb-10 mt-[180px] lg:mt-20 max-w-[90%] lg:max-w-[80%] mx-auto">

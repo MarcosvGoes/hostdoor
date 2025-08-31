@@ -33,6 +33,7 @@ export default function Footer() {
             <li><Link href="/help/about-us" className="hover:text-white">Sobre Nós</Link></li>
             <li><Link href="/help/terms-and-conditions" className="hover:text-white">Termos de Uso</Link></li>
             <li><Link href="/help/support-center" className="hover:text-white">Central de Ajuda</Link></li>
+            <li><Link href="/help/rules" className="hover:text-white">Regras de Locação</Link></li>
             <li><Link href="/help/privacy-policy" className="hover:text-white">Política De Privacidade</Link></li>
           </ul>
         </div>
