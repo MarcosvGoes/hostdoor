@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/shared/components/Shadcn-ui/carousel";
 import { Card, CardContent } from "@/shared/components/Shadcn-ui/card";
-import { BedSingle, CarFront, ChevronRight, Images, Info, PawPrint, Ruler, ShowerHead } from "lucide-react";
+import { BedSingle, CarFront, Images, Info, PawPrint, Ruler, ShowerHead } from "lucide-react";
 import { Badge } from "@/shared/components/Shadcn-ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/shared/components/Shadcn-ui/breadcrumb";
 import { ContactOwner } from "@/features/properties/components/ContactOwnerDrawer";
@@ -33,7 +33,7 @@ interface Property {
   cep: string
   allowsPet: boolean
   images: string[]
-    user: {
+  user: {
     email: string;
     phoneNumber: string;
     name: string;
@@ -50,7 +50,7 @@ export default function PropertyDetails() {
   const iptu = property?.iptu ?? 0;
   const tax = rent * 0.05;
 
-  const total = rent + condo + iptu + tax;
+  const total = rent + condo + iptu / 12 + tax;
 
   const currencyFormatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -59,7 +59,7 @@ export default function PropertyDetails() {
 
   const rentPriceFormatted = currencyFormatter.format(rent);
   const condominiumFormatted = currencyFormatter.format(condo);
-  const IPTUFormatted = currencyFormatter.format(iptu);
+  const IPTUFormatted = currencyFormatter.format(iptu / 12);
   const taxFormatted = currencyFormatter.format(tax);
   const totalFormatted = currencyFormatter.format(total);
 
@@ -79,11 +79,12 @@ export default function PropertyDetails() {
       .catch(console.error);
   }, [propertyId]);
 
-  const handleOpenMap = () => {
-    const address = `${property?.street}, ${property?.houseNumber}, ${property?.neighborhood}, ${property?.city} - ${property?.state}, ${property?.cep}`;
-    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    window.open(url, '_blank');
-  };
+
+  const address = `${property?.street}, ${property?.houseNumber}, ${property?.neighborhood}, ${property?.city} - ${property?.state}, ${property?.cep}`;
+  const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
+    address
+  )}&output=embed`;
+
 
 
   if (!property) return <p>Carregando...</p>;
@@ -240,17 +241,16 @@ export default function PropertyDetails() {
           <div className="mb-5 text-sm">
             <p>{property.description}</p>
           </div>
-
-          <div onClick={handleOpenMap} className="cursor-pointer p-5 m-0 gap-3 flex justify-between shadow-[0_3px_10px_rgb(0,0,0,0.2)] items-center" id="location">
-            <div className="grid gap-3 w-3/5">
-              <h1 className="text-xl">{property.street}</h1>
-              <div className="p-0 m-0 text-sm text-muted-foreground">
-                <span>{property.neighborhood}, </span>
-                <span>{property.city}, </span>
-                <span>{property.state}</span><br />
-              </div>
-            </div>
-            <ChevronRight size={28} strokeWidth={1} />
+          <div className="mt-4 w-full h-64 rounded-sm overflow-hidden shadow-md">
+            <iframe
+              src={mapSrc}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
 
@@ -301,7 +301,7 @@ export default function PropertyDetails() {
                         <Info className="w-4 h-4 cursor-pointer" />
                       </PopoverTrigger>
                       <PopoverContent className="max-w-xs text-sm">
-                        Imposto anual definido pela prefeitura referente ao imóvel.
+                        Imposto anual definido pela prefeitura para o imóvel, cujo valor é dividido em 12 parcelas mensais.
                       </PopoverContent>
                     </Popover>
                   </span>
@@ -316,8 +316,7 @@ export default function PropertyDetails() {
                         <Info className="w-4 h-4 cursor-pointer" />
                       </PopoverTrigger>
                       <PopoverContent className="max-w-xs text-sm">
-                        Valor destinado à manutenção da plataforma, atendimento, suporte, gestão de contratos e segurança dos repasses.
-                      </PopoverContent>
+                        Taxa de serviço aplicada exclusivamente sobre o valor do aluguel, destinada à manutenção da plataforma, atendimento, suporte, gestão de contratos e segurança dos repasses.                      </PopoverContent>
                     </Popover>
                   </span>
                   <span>{taxFormatted}</span>
@@ -338,7 +337,7 @@ export default function PropertyDetails() {
                   whatsapp={property.user.phoneNumber}
                 />
               ) : null}
-              
+
             </Card>
           </div>
         </div>
