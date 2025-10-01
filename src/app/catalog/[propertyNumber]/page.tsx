@@ -42,7 +42,7 @@ interface Property {
 
 export default function PropertyDetails() {
   const params = useParams();
-  const propertyId = params.id;
+  const propertyNumber = params.propertyNumber
   const [property, setProperty] = useState<Property | null>(null);
 
   const rent = property?.rentPrice ?? 0;
@@ -65,19 +65,19 @@ export default function PropertyDetails() {
 
   useEffect(() => {
     const visited = JSON.parse(localStorage.getItem("viewedProperties") || "[]");
-    if (!visited.includes(propertyId)) {
-      visited.push(propertyId);
+    if (!visited.includes(propertyNumber)) {
+      visited.push(propertyNumber);
       localStorage.setItem("viewedProperties", JSON.stringify(visited));
     }
 
-    fetch(`/api/get-properties/${propertyId}`)
+    fetch(`/api/get-properties/${propertyNumber}`)
       .then(res => {
         if (!res.ok) throw new Error("Erro ao buscar propriedade");
         return res.json();
       })
       .then(data => setProperty(data))
       .catch(console.error);
-  }, [propertyId]);
+  }, [propertyNumber]);
 
 
   const address = `${property?.street}, ${property?.houseNumber}, ${property?.neighborhood}, ${property?.city} - ${property?.state}, ${property?.cep}`;
@@ -110,7 +110,7 @@ export default function PropertyDetails() {
         </Breadcrumb>
 
         <div className="cursor-pointer bg-accent p-2 rounded-full hover:bg-accent/50 transition duration-100">
-          <SharePropertyButton id={property.id} />
+          <SharePropertyButton id={property.propertyNumber} />
         </div>
       </div>
 

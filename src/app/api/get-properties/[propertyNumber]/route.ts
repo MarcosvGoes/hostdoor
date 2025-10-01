@@ -2,17 +2,14 @@ import { appDomain, localhostAppDomain } from "@/utils/routes";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const id = req.nextUrl.pathname.split("/").pop();
-
-  if (!id) {
-    return NextResponse.json({ error: "Missing ID param" }, { status: 400 });
+  const propertyNumber = req.nextUrl.pathname.split("/").pop();
+  if (!propertyNumber) {
+    return NextResponse.json({ error: "Missing propertyNumber param" }, { status: 400 });
   }
 
-  const baseUrl = process.env.NODE_ENV === "development"
-    ? localhostAppDomain
-    : appDomain;
+  const baseUrl = process.env.NODE_ENV === "development" ? localhostAppDomain : appDomain;
 
-  const res = await fetch(`${baseUrl}/api/properties/${id}`, {
+  const res = await fetch(`${baseUrl}/api/properties/${propertyNumber}`, {
     headers: {
       Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
     },

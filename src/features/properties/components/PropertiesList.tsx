@@ -30,7 +30,7 @@ function PropertiesListComponent({ properties }: Props) {
           <Card
             key={property.id}
             className="flex rounded-sm cursor-pointer flex-col p-0 gap-0"
-            onClick={() => router.push(`/catalog/${property.id}`)}
+            onClick={() => router.push(`/catalog/${property.propertyNumber}`)}
           >
             <div className="relative w-full aspect-video">
               <Carousel className="h-full w-full">
