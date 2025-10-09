@@ -151,7 +151,7 @@ export default function Rules() {
                     <ol>
                         <li>
                             <strong className="text-blue-700">10. Primeiro Pagamento: </strong>
-                            Refere-se à primeira cobrança da locação, que incluirá aluguel, IPTU, Seguro Incêndio e, quando aplicável, condomínio. O dia de vencimento será sempre definido pelo locador no início do contrato. Caso a data de início ou término não coincida com a data escolhida, os valores serão calculados de forma proporcional:  valor mensal ÷ 30 × número de dias de uso.
+                            Refere-se à primeira cobrança da locação, que incluirá aluguel, IPTU, Seguro Incêndio e, quando aplicável, condomínio. O dia de vencimento será sempre definido pelo locador no início do contrato. Caso a data de início ou término não coincida com a data escolhida, os valores serão calculados de forma proporcional:  valor mensal ÷ quantidade de dias no mês × número de dias de uso.
                         </li>
                         <ol className="ml-3 pt-1">
                             <li>
