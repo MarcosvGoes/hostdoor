@@ -1,5 +1,5 @@
 import { Button } from "@/shared/components/Shadcn-ui/button";
-import { File, Handshake, ShieldCheck } from "lucide-react";
+import { FastForward, File, Handshake, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -34,7 +34,7 @@ export default function Home() {
         <Image src="/assets/images/bgimg2.png" width={500} height={500} layout="responsive" alt="logo" />
       </section>
 
-      <section className="w-full my-20 max-w-[90%] mx-auto grid gap-8 lg:grid-cols-3 lg:gap-x-80">
+      <section className="w-full my-20 max-w-[90%] mx-auto grid gap-8 lg:grid-cols-4 lg:gap-x-80">
         <div>
           <h1 className="font-semibold flex gap-x-2 items-center lg:text-xl">
             <ShieldCheck strokeWidth={3} /> Segurança
@@ -46,6 +46,12 @@ export default function Home() {
             <File strokeWidth={3} /> Facilidade
           </h1>
           <p className="text-xs lg:text-base mt-2">A HostDoor gera contrato automático, assinatura digital e pagamento automático, para que possa apenas aproveitar seu novo lar.</p>
+        </div>
+        <div>
+          <h1 className="font-semibold flex gap-x-2 items-center lg:text-xl">
+            <FastForward strokeWidth={3} /> Agilidade
+          </h1>
+          <p className="text-xs lg:text-base mt-2">Com a HostDoor você dispensa a necessidade de solicitar fiador ou até mesmo testemunhas devido a nosso modelo de contrato digital com válidade jurídica</p>
         </div>
         <div>
           <h1 className="font-semibold flex gap-x-2 items-center lg:text-xl">
