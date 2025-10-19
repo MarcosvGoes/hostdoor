@@ -17,7 +17,7 @@ function getBaseDomain() {
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
     const baseUrl = getBaseDomain();
-    const res = await fetch(`${baseUrl}/api/properties`,    
+    const res = await fetch(`${baseUrl}/api/properties?x-vercel-protection-bypass=${process.env.BYPASS_VERCEL}`,    
     {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
