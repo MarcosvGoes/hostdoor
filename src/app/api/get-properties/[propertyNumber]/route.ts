@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   }
 
 
-  const res = await fetch(`${process.env.APP_NEXT_PUBLIC_URL}/api/properties/${propertyNumber}`, {
+  const res = await fetch(`${process.env.APP_NEXT_PUBLIC_URL}/api/properties/${propertyNumber}?x-vercel-protection-bypass=${process.env.VERCEL_AUTOMATION_BYPASS_SECRET}`, {
     headers: {
       Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
     },
