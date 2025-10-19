@@ -1,7 +1,6 @@
 import { getPropertiesFromExternalAPI } from "@/features/properties/actions/getPropertiesFromExternalAPI";
 import { NextResponse } from "next/server";
 
-export const revalidate = 60;
 export const dynamic = "force-static";
 
 export async function GET() {
