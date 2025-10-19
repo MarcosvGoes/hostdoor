@@ -3,10 +3,17 @@ import { Property } from "@/shared/types/Property";
 import { appDomain, devDomain, localhostAppDomain } from "@/utils/routes";
 
 function getBaseDomain() {
-  if (process.env.NODE_ENV === "development") return localhostAppDomain;
-  if (process.env.VERCEL_ENV === "preview") return devDomain;
+  if (process.env.NODE_ENV === "development") {
+    return localhostAppDomain;
+  }
+
+  if (process.env.VERCEL_ENV === "preview") {
+    return devDomain;
+  }
+
   return appDomain;
 }
+
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
     const baseUrl = getBaseDomain();
