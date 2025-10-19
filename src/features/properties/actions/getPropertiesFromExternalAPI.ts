@@ -1,10 +1,23 @@
 import { revalidate } from "@/app/api/get-properties/route";
 import { Property } from "@/shared/types/Property";
-import { appDomain, devDomain } from "@/utils/routes";
+import { appDomain, devDomain, localhostAppDomain } from "@/utils/routes";
+
+function getBaseDomain() {
+  if (process.env.NODE_ENV === "development") {
+    return localhostAppDomain;
+  }
+
+  if (process.env.VERCEL_ENV === "preview") {
+    return devDomain;
+  }
+
+  return appDomain;
+}
+
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
-  const res = await fetch(
-    `${process.env.NODE_ENV === "development" ? `${devDomain}` : `${appDomain}`}/api/properties`,
+    const baseUrl = getBaseDomain();
+    const res = await fetch(`${baseUrl}/api/properties`,    
     {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
