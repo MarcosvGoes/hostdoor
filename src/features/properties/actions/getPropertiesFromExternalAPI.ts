@@ -3,21 +3,19 @@ import { Property } from "@/shared/types/Property";
 import { appDomain, devDomain, localhostAppDomain } from "@/utils/routes";
 
 function getBaseDomain() {
-  if (process.env.NODE_ENV === "development") {
-    return localhostAppDomain;
-  }
-
-  if (process.env.VERCEL_ENV === "preview") {
-    return devDomain;
-  }
-
+  if (process.env.NODE_ENV === "development") return localhostAppDomain;
+  if (process.env.VERCEL_ENV === "preview") return devDomain;
   return appDomain;
 }
 
-
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
     const baseUrl = getBaseDomain();
-    const res = await fetch(`${baseUrl}/api/properties?x-vercel-protection-bypass=${process.env.VERCEL_AUTOMATION_BYPASS_SECRET}`,    
+  console.log("[getPropertiesFromExternalAPI] baseUrl:", baseUrl); // log temporário
+
+    const url = `${baseUrl}/api/properties?x-vercel-protection-bypass=${process.env.VERCEL_AUTOMATION_BYPASS_SECRET}`;
+  console.log("[getPropertiesFromExternalAPI] fetch URL:", url);
+
+    const res = await fetch(url,
     {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
