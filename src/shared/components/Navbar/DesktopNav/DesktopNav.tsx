@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@/shared/components/Shadcn-ui/dropdown-menu";
-import { appDomain } from "@/utils/routes";
 
 export default function DesktopNav() {
   return (
@@ -44,7 +43,7 @@ export default function DesktopNav() {
           <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5">
             <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Anuncie com a HostDoor</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
-              <DropdownItem external href={appDomain}>
+              <DropdownItem external href={process.env.NEXT_PUBLIC_URL || "https://hostdoor.com.br"}>
                 Cadastre seu imóvel
               </DropdownItem>
               <DropdownItem href="/solutions">Soluções</DropdownItem>

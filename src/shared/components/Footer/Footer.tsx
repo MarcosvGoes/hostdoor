@@ -1,4 +1,3 @@
-import { appDomain } from "@/utils/routes";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +20,7 @@ export default function Footer() {
             <li><Link href="/" className="hover:text-white">Início</Link></li>
             <li><Link href="/guide" className="hover:text-white">Guias</Link></li>
             <li><Link href="/catalog" className="hover:text-white">Alugar</Link></li>
-            <li><a href={appDomain} target="_blank" className="hover:text-white">Anunciar</a></li>
+            <li><a href={process.env.NEXT_PUBLIC_URL} target="_blank" className="hover:text-white">Anunciar</a></li>
           </ul>
         </div>
 
