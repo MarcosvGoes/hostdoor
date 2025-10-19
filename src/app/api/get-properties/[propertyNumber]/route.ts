@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   }
 
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}api/properties/${propertyNumber}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/properties/${propertyNumber}`, {
     headers: {
       Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,
     },
