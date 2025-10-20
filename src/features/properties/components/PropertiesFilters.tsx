@@ -94,8 +94,9 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
       <div
         className={`lg:hidden fixed z-20 inset-x-0 w-full max-w-[90%] mx-auto flex flex-col
     transition-all duration-300 ease-in-out
-    ${hidden ? "top-2" : "top-17"}`}
-      >        <Card className="w-full px-4 py-2 m-0 grid gap-2">
+    ${hidden ? "top-2" : "top-20"}`}
+      >        
+      <Card className="w-full px-4 py-2 m-0 grid gap-2">
           <div className="relative">
             <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={14} />
             <Input
@@ -238,7 +239,7 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
 
 
       {/* Desktop Filters */}
-      <div className="hidden overflow-x-auto scrollbar-none lg:flex gap-4 items-center top-[65px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
+      <div className="hidden overflow-x-auto scrollbar-none lg:flex gap-4 items-center top-[85px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
         {/* Input texto para city, neighborhood, state */}
         <div className="relative">
           <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />

@@ -5,7 +5,7 @@ import DesktopNav from "./DesktopNav/DesktopNav";
 export default function Navbar() {
 
   return (
-    <nav className="w-full">
+    <nav>
       <div className="flex lg:hidden">
         <MobileNav />
       </div>

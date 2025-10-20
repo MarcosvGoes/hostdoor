@@ -34,7 +34,7 @@ export function ContactOwner({ email, phone, whatsapp }: ContactOwnerProps) {
       </p>
       <div className="grid gap-2">
         <a
-          href={`https://wa.me/${whatsapp}?text=${encodeURIComponent("Olá! Vi seu imóvel na HostDoor e gostaria de saber mais detalhes.")}`}
+          href={`https://wa.me/${whatsapp}?text=${encodeURIComponent("Olá! Vi seu imóvel na Hostdoor e gostaria de saber mais detalhes.")}`}
           target="_blank"
           rel="noopener noreferrer"
         >

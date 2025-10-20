@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export default function SupportCenter() {
     return (
-        <main className="max-w-[90%] mx-auto py-10 space-y-10">
-            <h1 className="text-3xl font-bold">Central de Suporte</h1>
+    <main className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[70%] space-y-5">
+            <h1 className="text-2xl font-bold">Central de Suporte</h1>
 
             <p className="text-muted-foreground text-base">
                 Estamos aqui para te ajudar. Entre em contato com a nossa equipe pelo canal mais adequado para sua necessidade.
@@ -48,7 +48,7 @@ export default function SupportCenter() {
                     </CardContent>
                     <Button asChild variant="secondary" className="hover:cursor-pointer">
                         <a
-                            href="https://wa.me/+5527988567724"
+                            href="https://wa.me/+5527992023805"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

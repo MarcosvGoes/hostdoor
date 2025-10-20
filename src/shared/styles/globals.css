@@ -133,3 +133,16 @@
 ul {
   list-style: none;
 }
+
+/* globals.css */
+html {
+  /* reserva o espaço da scrollbar para evitar layout shift */
+  scrollbar-gutter: stable;
+}
+
+/* fallback para navegadores que não suportam scrollbar-gutter:
+   força o scroll bar sempre visível (mesmo que não tenha overflow) */
+body {
+  overflow-y: scroll;
+}
+

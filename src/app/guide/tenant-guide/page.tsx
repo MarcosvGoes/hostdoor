@@ -1,28 +1,27 @@
 "use client";
 
-import { Card } from "@/shared/components/Shadcn-ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/shared/components/Shadcn-ui/dialog";
+import { Separator } from "@/shared/components/Shadcn-ui/separator";
+import { ChevronRight } from "lucide-react";
 
 export default function TenantGuide() {
   return (
-    <main className="max-w-[90%] mx-auto py-10 space-y-5">
+    <main className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[60%] space-y-5">
       <h1 className="text-2xl font-bold">Guia do Inquilino</h1>
 
       <div className="space-y-5">
         <p className="font-semibold">
-          Seja bem-vindo à HostDoor! Aqui explicamos tudo o que você precisa saber para alugar com segurança e facilidade.
+          Seja bem-vindo à Hostdoor! Aqui explicamos tudo o que você precisa saber para alugar com segurança e facilidade.
         </p>
 
-        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <ul className="flex flex-col space-y-1 lg:p-3 py-2">
           {/* Tópico 1 */}
           <Dialog>
-            <DialogTrigger asChild>
-              <Card className="p-4 h-28 justify-center cursor-pointer">
-                <p>Como escolher um imóvel no catálogo</p>
-              </Card>
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+              <ChevronRight size={14} />  Como escolher um imóvel no catálogo
             </DialogTrigger>
             <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-              <DialogTitle className="text-xl font-semibold my-4">
+              <DialogTitle className="text-xl font-semibold">
                 Como escolher um imóvel no catálogo
               </DialogTitle>
               <div className="grid gap-5">
@@ -40,15 +39,15 @@ export default function TenantGuide() {
             </DialogContent>
           </Dialog>
 
+          <Separator />
+
           {/* Tópico 2 */}
           <Dialog>
-            <DialogTrigger asChild>
-              <Card className="p-4 h-28 justify-center cursor-pointer">
-                <p>Contato com o proprietário</p>
-              </Card>
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+              <ChevronRight size={14} />  Contato com o proprietário
             </DialogTrigger>
             <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-              <DialogTitle className="text-xl font-semibold my-4">
+              <DialogTitle className="text-xl font-semibold">
                 Contato com o proprietário
               </DialogTitle>
               <div className="grid gap-5">
@@ -62,15 +61,15 @@ export default function TenantGuide() {
             </DialogContent>
           </Dialog>
 
+          <Separator />
+
           {/* Tópico 3 */}
           <Dialog>
-            <DialogTrigger asChild>
-              <Card className="p-4 h-28 justify-center cursor-pointer">
-                <p>Visitação e propostas</p>
-              </Card>
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+              <ChevronRight size={14} />  Visitação e propostas
             </DialogTrigger>
             <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-              <DialogTitle className="text-xl font-semibold my-4">
+              <DialogTitle className="text-xl font-semibold">
                 Visitação e propostas
               </DialogTitle>
               <div className="grid gap-5">
@@ -88,15 +87,15 @@ export default function TenantGuide() {
             </DialogContent>
           </Dialog>
 
+          <Separator />
+
           {/* Tópico 4 */}
           <Dialog>
-            <DialogTrigger asChild>
-              <Card className="p-4 h-28 justify-center cursor-pointer">
-                <p>Assinatura digital do contrato</p>
-              </Card>
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+              <ChevronRight size={14} />Assinatura digital do contrato
             </DialogTrigger>
             <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-              <DialogTitle className="text-xl font-semibold my-4">
+              <DialogTitle className="text-xl font-semibold">
                 Assinatura digital do contrato
               </DialogTitle>
               <div className="grid gap-5">
@@ -110,15 +109,15 @@ export default function TenantGuide() {
             </DialogContent>
           </Dialog>
 
+          <Separator />
+
           {/* Tópico 5 */}
           <Dialog>
-            <DialogTrigger asChild>
-              <Card className="p-4 h-28 justify-center cursor-pointer">
-                <p>Pagamentos via plataforma</p>
-              </Card>
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+              <ChevronRight size={14} />  Pagamentos via plataforma
             </DialogTrigger>
             <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-              <DialogTitle className="text-xl font-semibold my-4">
+              <DialogTitle className="text-xl font-semibold">
                 Pagamentos via plataforma
               </DialogTitle>
               <div className="grid gap-5">
@@ -132,20 +131,20 @@ export default function TenantGuide() {
             </DialogContent>
           </Dialog>
 
+          <Separator />
+
           {/* Tópico 6 */}
           <Dialog>
-            <DialogTrigger asChild>
-              <Card className="p-4 h-28 justify-center cursor-pointer">
-                <p>Suporte durante toda sua estadia</p>
-              </Card>
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+              <ChevronRight size={14} />  Suporte durante toda sua estadia
             </DialogTrigger>
             <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-              <DialogTitle className="text-xl font-semibold my-4">
+              <DialogTitle className="text-xl font-semibold">
                 Suporte durante toda sua estadia
               </DialogTitle>
               <div className="grid gap-5">
                 <p>
-                  A HostDoor oferece suporte contínuo para te ajudar em qualquer necessidade durante sua locação.
+                  A Hostdoor oferece suporte contínuo para te ajudar em qualquer necessidade durante sua locação.
                 </p>
                 <p>
                   Entre em contato conosco por e-mail ou WhatsApp para atendimento sempre que precisar.
@@ -156,7 +155,7 @@ export default function TenantGuide() {
         </ul>
 
         <p className="italic text-sm text-gray-500">
-          Lembre-se: a HostDoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
+          Lembre-se: a Hostdoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
         </p>
       </div>
     </main>

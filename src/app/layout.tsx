@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import {
+  // Poppins,
+   Inter
+    } from "next/font/google";
 import "../shared/styles/globals.css";
 import Navbar from "@/shared/components/Navbar/Navbar";
 import Footer from "@/shared/components/Footer/Footer";
 import { Toaster } from "sonner";
 
-const poppins = Poppins({
+//const poppins = Poppins({
+//subsets: ["latin"],
+//  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+//});
+
+const inter = Inter({
   subsets: ["latin"],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
-});
+})
 
 export const metadata: Metadata = {
-  title: "HostDoor",
-  description: "HostDoor",
+  title: "Hostdoor",
+  description: "Hostdoor",
 };
 
 export default function RootLayout({
@@ -26,12 +34,12 @@ export default function RootLayout({
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      <meta name="apple-mobile-web-app-title" content="HostDoor" />
+      <meta name="apple-mobile-web-app-title" content="Hostdoor" />
       <link rel="manifest" href="/site.webmanifest" />
 
-      <body className={`${poppins.className} antialiased min-h-screen flex flex-col`}>
+      <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
         <Navbar />
-        <main className="flex-1 mx-auto mt-16 lg:pt-16 lg:mt-0">
+        <main className="flex-1">
           {children}
         </main>
         <Footer />

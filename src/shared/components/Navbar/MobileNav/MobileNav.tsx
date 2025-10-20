@@ -48,7 +48,7 @@ export default function MobileNav() {
     >
       <Link href="/" className="flex h-auto items-center gap-x-1 text-xl font-extrabold">
         <Image width={25} height={25} alt="logo hostdoor" src="/assets/logo/hostdoor-logo-light.png"/>
-        <span className="text-xl">HostDoor</span>
+        <span className="text-xl">Hostdoor</span>
       </Link>
 
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>

@@ -1,28 +1,28 @@
 "use client";
 
-import { Card } from "@/shared/components/Shadcn-ui/card";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/shared/components/Shadcn-ui/dialog";
+import { Separator } from "@/shared/components/Shadcn-ui/separator";
+import { ChevronRight } from "lucide-react";
 
 export default function OwnerGuide() {
     return (
-        <main className="max-w-[90%] mx-auto py-10 space-y-5">
+    <main className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[60%] space-y-5">
             <h1 className="text-2xl font-bold">Guia do Proprietário</h1>
 
             <div className="space-y-5">
                 <p className="font-semibold">
-                    Cadastre, gerencie e alugue seus imóveis de forma prática e segura com a HostDoor.
+                    Cadastre, gerencie e alugue seus imóveis de forma prática e segura com a Hostdoor.
                 </p>
 
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+        <ul className="flex flex-col space-y-1 lg:p-3 py-2">
                     {/* Tópico 1 */}
                     <Dialog>
-                        <DialogTrigger asChild>
-                            <Card className="p-4 h-28 justify-center cursor-pointer">
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+                <ChevronRight size={14} />
                                 <p>Como criar sua conta de proprietário</p>
-                            </Card>
                         </DialogTrigger>
                         <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-                            <DialogTitle className="text-xl font-semibold my-4">
+                            <DialogTitle className="text-xl font-semibold">
                                 Como criar sua conta de proprietário
                             </DialogTitle>
                             <div className="grid gap-5">
@@ -38,16 +38,16 @@ export default function OwnerGuide() {
                             </div>
                         </DialogContent>
                     </Dialog>
+          <Separator />
 
                     {/* Tópico 2 */}
                     <Dialog>
-                        <DialogTrigger asChild>
-                            <Card className="p-4 h-28 justify-center cursor-pointer">
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+                <ChevronRight size={14} />
                                 <p>Como cadastrar um imóvel</p>
-                            </Card>
                         </DialogTrigger>
                         <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-                            <DialogTitle className="text-xl font-semibold my-4">
+                            <DialogTitle className="text-xl font-semibold">
                                 Como cadastrar um imóvel
                             </DialogTitle>
                             <div className="grid gap-5">
@@ -63,16 +63,16 @@ export default function OwnerGuide() {
                             </div>
                         </DialogContent>
                     </Dialog>
+          <Separator />
 
                     {/* Tópico 4 */}
                     <Dialog>
-                        <DialogTrigger asChild>
-                            <Card className="p-4 h-28 justify-center cursor-pointer">
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+                <ChevronRight size={14} />
                                 <p>Recebimento de contatos de inquilinos</p>
-                            </Card>
                         </DialogTrigger>
                         <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-                            <DialogTitle className="text-xl font-semibold my-4">
+                            <DialogTitle className="text-xl font-semibold">
                                 Recebimento de contatos de inquilinos
                             </DialogTitle>
                             <div className="grid gap-5">
@@ -82,21 +82,21 @@ export default function OwnerGuide() {
                             </div>
                         </DialogContent>
                     </Dialog>
+          <Separator />
 
                     {/* Tópico 5 */}
                     <Dialog>
-                        <DialogTrigger asChild>
-                            <Card className="p-4 h-28 justify-center cursor-pointer">
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+                <ChevronRight size={14} />
                                 <p>Geração e assinatura de contrato</p>
-                            </Card>
                         </DialogTrigger>
                         <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-                            <DialogTitle className="text-xl font-semibold my-4">
+                            <DialogTitle className="text-xl font-semibold">
                                 Geração e assinatura de contrato
                             </DialogTitle>
                             <div className="grid gap-5">
                                 <p>
-                                    Após acordo com o inquilino, você pode gerar o contrato dentro da HostDoor usando o sistema de geração automática.
+                                    Após acordo com o inquilino, você pode gerar o contrato dentro da Hostdoor usando o sistema de geração automática.
                                 </p>
                                 <p>
                                     A assinatura é digital, com validade jurídica, e as partes são notificadas por e-mail para assinar com segurança.
@@ -104,16 +104,16 @@ export default function OwnerGuide() {
                             </div>
                         </DialogContent>
                     </Dialog>
+          <Separator />
 
                     {/* Tópico 6 */}
                     <Dialog>
-                        <DialogTrigger asChild>
-                            <Card className="p-4 h-28 justify-center cursor-pointer">
+            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
+                <ChevronRight size={14} />
                                 <p>Recebimento automático do aluguel</p>
-                            </Card>
                         </DialogTrigger>
                         <DialogContent className="my-10 overflow-y-auto w-screen bg-background">
-                            <DialogTitle className="text-xl font-semibold my-4">
+                            <DialogTitle className="text-xl font-semibold">
                                 Recebimento automático do aluguel
                             </DialogTitle>
                             <div className="grid gap-5">
@@ -127,7 +127,7 @@ export default function OwnerGuide() {
                                     Quando o inquilino realiza o pagamento pela plataforma, o valor é repassado automaticamente para sua conta bancária cadastrada.
                                 </p>
                                 <p>
-                                    Sem atrasos, sem intermediários. A HostDoor cuida da cobrança e da segurança da transação.
+                                    Sem atrasos, sem intermediários. A Hostdoor cuida da cobrança e da segurança da transação.
                                 </p>
                             </div>
                         </DialogContent>
@@ -135,7 +135,7 @@ export default function OwnerGuide() {
                 </ul>
 
                 <p className="italic text-sm text-gray-500">
-                    Lembre-se: a HostDoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
+                    Lembre-se: a Hostdoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
                 </p>
             </div>
         </main>
