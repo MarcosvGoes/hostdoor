@@ -40,7 +40,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="lg:flex lg:max-w-[70%] max-w-[90%] mx-auto lg:mx-auto lg:items-center">
+          className="lg:flex lg:max-w-[1200px] max-w-[90%] mx-auto lg:mx-auto lg:items-center">
           <Image alt="house for rent" src="/assets/images/rent.jpg" width={500} height={500} className="my-10 lg:my-0 mx-auto lg:w-1/2" />
           <div className="lg:w-1/2">
             <span className="underline underline-offset-5 text-muted-foreground decoration-gray-300 flex justify-center lg:justify-start">Imóveis</span>
@@ -58,7 +58,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="lg:flex lg:max-w-[70%] max-w-[90%] mx-auto lg:mx-auto lg:items-center lg:flex-row-reverse">
+          className="lg:flex lg:max-w-[1200px] max-w-[90%] mx-auto lg:mx-auto lg:items-center lg:flex-row-reverse">
           <Image
             alt="assinatura digital"
             src="/assets/images/contract.jpg"
@@ -86,7 +86,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="lg:flex lg:max-w-[70%] max-w-[90%] mx-auto lg:mx-auto lg:items-center mb-20">
+          className="lg:flex lg:max-w-[1200px] max-w-[90%] mx-auto lg:mx-auto lg:items-center mb-20">
           <Image
             alt="assinatura digital"
             src="/assets/images/security.jpg"
