@@ -16,11 +16,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('/assets/images/bg-apartament.jpg')] bg-cover bg-center" />
         <div className="relative z-10 w-full max-w-[90%] mx-auto text-darkText text-center lg:pt-20">
           <h1 className="text-2xl text-darkText font-bold text-center mt-40 lg:text-4xl">Alugue ou anuncie imóveis <br /> de forma simples, segura <br />e sem burocracia</h1>
-          <Button className="p-5 mx-auto justify-center flex mt-5 rounded-full" variant={"outline"}>
-            <Link href="/catalog">
+          <Link href="/catalog">
+            <Button className="p-5 mx-auto justify-center flex mt-5 rounded-full" variant={"outline"}>
               Confira nosso catálogo
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </section>
 
