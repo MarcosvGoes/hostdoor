@@ -88,7 +88,7 @@ export default function MobileNav() {
               </AccordionTrigger>
               <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
-                  <a href={process.env.NEXT_PUBLIC_URL} target="_blank" onClick={() => setIsOpen(false)}>
+                  <a href={"https://app.hostdoor.com.br"} target="_blank" onClick={() => setIsOpen(false)}>
                     Cadastre seu imóvel
                   </a>
                 </Button>
