@@ -36,7 +36,7 @@ export default function Price() {
                         <s className="block text-gray-400 text-lg font-bold">até 12% sobre o aluguel</s>
 
                         <div className="mt-6">
-                            <h2 className="text-4xl font-extrabold text-[#4546EA]">R$ 9,90/mês</h2>
+                            <h2 className="text-3xl font-extrabold text-[#4546EA]">R$ 9,90/mês</h2>
                             <p className="text-sm text-[#4546EA] font-medium">+ 5% sobre o aluguel + R$ 1,99 fixo</p>
                             <div className="mt-2 inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">
                                 🎉 3 primeiros meses grátis
