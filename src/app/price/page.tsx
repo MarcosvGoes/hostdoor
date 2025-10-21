@@ -37,7 +37,7 @@ export default function Price() {
 
                         <div className="mt-6">
                             <h2 className="text-3xl font-extrabold text-[#4546EA]">R$ 9,90/mês</h2>
-                            <p className="text-sm text-[#4546EA] font-medium">+ 5% sobre o aluguel + R$ 1,99 fixo</p>
+                            <p className="text-sm text-[#4546EA] font-medium">+ 5% sobre o aluguel</p>
                             <div className="mt-2 inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">
                                 🎉 3 primeiros meses grátis
                             </div>
@@ -67,7 +67,7 @@ export default function Price() {
                             ))}
                         </ul>
                         <p className="text-[10px] text-gray-500 mt-8">
-                            A cobrança de 5% + R$1,99 é aplicada **apenas sobre o valor do aluguel**, excluindo IPTU e condomínio.
+                            A cobrança de 5% é aplicada **apenas sobre o valor do aluguel**, excluindo IPTU e condomínio.
                         </p>
                         <p className="text-[10px] text-gray-500 mt-2">
                             A taxa de R$9,90 por mês se refere a taxa de uso da plataforma, para manter seu imóvel anúnciado.
