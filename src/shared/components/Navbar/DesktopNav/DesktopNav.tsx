@@ -46,6 +46,7 @@ export default function DesktopNav() {
             <DropdownItem external href={"https://app.hostdoor.com.br"}>
                 Cadastre seu imóvel
               </DropdownItem>
+              <DropdownItem href="/price">Preços e taxas</DropdownItem>
               <DropdownItem href="/solutions">Soluções</DropdownItem>
               <DropdownItem href="/guide/owner-guide">Ajuda</DropdownItem>
             </div>

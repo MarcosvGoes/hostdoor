@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import { Button } from '@/shared/components/Shadcn-ui/button';
-import { Ghost } from 'lucide-react';
+import Image from 'next/image';
 
 export default function NotFound() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-background px-6 text-darkText text-center">
       <div className="flex flex-col items-center gap-4 max-w-md">
-        <Ghost size={48} />
+        <Image width={500} height={500} alt='not-found' src="/assets/images/not-found.jpg" />
         <h1 className="text-3xl font-bold">Página não encontrada</h1>
         <p className="text-sm text-muted-foreground">
           A página que você está tentando acessar não existe ou foi removida.

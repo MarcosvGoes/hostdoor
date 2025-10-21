@@ -37,10 +37,7 @@ const features = [
   return (
 <Carousel className="overflow-x-auto" plugins={[
   Autoplay({
-    delay: 4000,
-    stopOnMouseEnter: true,
-    stopOnFocusIn: true,
-    stopOnInteraction: true,
+    delay: 1000,
   })
 ]}>
   <CarouselContent className="flex gap-2 px-5">

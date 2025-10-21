@@ -93,6 +93,11 @@ export default function MobileNav() {
                   </a>
                 </Button>
                 <Button asChild variant="link" className="block text-left w-full font-medium">
+                  <Link href="/price" onClick={() => setIsOpen(false)}>
+                    Preços e taxas
+                  </Link>
+                </Button>
+                <Button asChild variant="link" className="block text-left w-full font-medium">
                   <Link href="/solutions" onClick={() => setIsOpen(false)}>
                     Soluções
                   </Link>
