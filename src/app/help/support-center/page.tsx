@@ -4,18 +4,22 @@ import { Mail } from "lucide-react";
 import { Button } from "@/shared/components/Shadcn-ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/Shadcn-ui/card";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function SupportCenter() {
     return (
-    <main className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[70%] space-y-5">
-            <h1 className="text-2xl font-bold">Central de Suporte</h1>
+        <motion.main
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[70%] space-y-5"
+        >            <h1 className="text-2xl font-bold">Central de Suporte</h1>
 
             <p className="text-muted-foreground text-base">
                 Estamos aqui para te ajudar. Entre em contato com a nossa equipe pelo canal mais adequado para sua necessidade.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Suporte por E-mail */}
                 <Card className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col justify-between m-0 p-5">
                     <CardHeader className="p-0">
                         <CardTitle className="flex items-center gap-2">
@@ -34,7 +38,6 @@ export default function SupportCenter() {
                     </Button>
                 </Card>
 
-                {/* Suporte via WhatsApp */}
                 <Card className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col justify-between m-0 p-5">
                     <CardHeader className="p-0">
                         <CardTitle className="flex items-center gap-2">
@@ -62,6 +65,6 @@ export default function SupportCenter() {
             <div className="text-center text-xs text-gray-400 mt-8">
                 * Em breve teremos chat direto pela plataforma.
             </div>
-        </main>
+        </motion.main>
     );
 }

@@ -3,8 +3,52 @@
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/shared/components/Shadcn-ui/dialog";
 import { Separator } from "@/shared/components/Shadcn-ui/separator";
 import { ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function PriceGuide() {
+  const priceTopics = [
+    {
+      title: "Pesquise valores na sua região",
+      content: (
+        <p>
+          Antes de definir o valor do aluguel, veja quanto estão pedindo por imóveis similares no seu bairro ou cidade. Isso ajuda a manter o preço competitivo.
+        </p>
+      ),
+    },
+    {
+      title: "Considere tamanho, localização e estado",
+      content: (
+        <p>
+          Imóveis maiores, bem localizados e em bom estado costumam ter maior valor de mercado. Avalie esses pontos com realismo ao definir o preço.
+        </p>
+      ),
+    },
+    {
+      title: "Use o preço médio por m²",
+      content: (
+        <p>
+          Divida o valor de imóveis similares pela metragem para entender o valor médio por metro quadrado. Isso ajuda a manter a coerência com o mercado.
+        </p>
+      ),
+    },
+    {
+      title: "Ofereça descontos para contratos longos",
+      content: (
+        <p>
+          Contratos de 24 ou 36 meses dão mais estabilidade e menor rotatividade. Oferecer um desconto simbólico pode atrair inquilinos comprometidos.
+        </p>
+      ),
+    },
+    {
+      title: "Considere benefícios extras",
+      content: (
+        <p>
+          Itens como segurança 24h, garagem, mobília, ar-condicionado ou eletrodomésticos agregam valor ao imóvel e podem justificar um preço mais alto.
+        </p>
+      ),
+    },
+  ];
+
   return (
     <main className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[60%] space-y-5">
       <h1 className="text-2xl font-bold">Guia de Preço</h1>
@@ -15,91 +59,29 @@ export default function PriceGuide() {
         </p>
 
         <ul className="flex flex-col space-y-1 lg:p-3 py-2">
-          {/* Item 1 */}
-          <Dialog>
-            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
-<ChevronRight size={14} />              
-                Pesquise valores na sua região
-            </DialogTrigger>
-            <DialogContent className="my-10 w-screen bg-background overflow-y-auto">
-              <DialogTitle className="text-xl font-semibold">Pesquise valores na sua região</DialogTitle>
-              <div className="grid gap-5">
-                <p>
-                  Antes de definir o valor do aluguel, veja quanto estão pedindo por imóveis similares no seu bairro ou cidade. Isso ajuda a manter o preço competitivo.
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
-          <Separator />
-
-          {/* Item 2 */}
-          <Dialog>
-            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
-<ChevronRight size={14} />              
-                Considere tamanho, localização e estado
-            </DialogTrigger>
-            <DialogContent className="my-10 w-screen bg-background overflow-y-auto">
-              <DialogTitle className="text-xl font-semibold">Considere tamanho, localização e estado</DialogTitle>
-              <div className="grid gap-5">
-                <p>
-                  Imóveis maiores, bem localizados e em bom estado costumam ter maior valor de mercado. Avalie esses pontos com realismo ao definir o preço.
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
-          <Separator />
-
-          {/* Item 3 */}
-          <Dialog>
-            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
-<ChevronRight size={14} />              
-                Use o preço médio por m²
-            </DialogTrigger>
-            <DialogContent className="my-10 w-screen bg-background overflow-y-auto">
-              <DialogTitle className="text-xl font-semibold">Use o preço médio por m²</DialogTitle>
-              <div className="grid gap-5">
-                <p>
-                  Divida o valor de imóveis similares pela metragem para entender o valor médio por metro quadrado. Isso ajuda a manter a coerência com o mercado.
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
-          <Separator />
-
-          {/* Item 4 */}
-          <Dialog>
-            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
-<ChevronRight size={14} />              
-                Ofereça descontos para contratos longos
-            </DialogTrigger>
-            <DialogContent className="my-10 w-screen bg-background overflow-y-auto">
-              <DialogTitle className="text-xl font-semibold">Ofereça descontos para contratos longos</DialogTitle>
-              <div className="grid gap-5">
-                <p>
-                  Contratos de 24 ou 36 meses dão mais estabilidade e menor rotatividade. Oferecer um desconto simbólico pode atrair inquilinos comprometidos.
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
-          <Separator />
-
-          {/* Item 5 */}
-          <Dialog>
-            <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 lg:px-2 rounded-sm cursor-pointer">
-<ChevronRight size={14} />              
-                Considere benefícios extras
-            </DialogTrigger>
-            <DialogContent className="my-10 w-screen bg-background overflow-y-auto">
-              <DialogTitle className="text-xl font-semibold">Considere benefícios extras</DialogTitle>
-              <div className="grid gap-5">
-                <p>
-                  Itens como segurança 24h, garagem, mobília, ar-condicionado ou eletrodomésticos agregam valor ao imóvel e podem justificar um preço mais alto.
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
+          {priceTopics.map((topic, index) => (
+            <motion.li
+              key={topic.title}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+              className="mb-0"
+            >
+              <Dialog>
+                <DialogTrigger className="text-start flex items-center gap-x-2 hover:bg-muted p-1 my-1 lg:px-2 rounded-sm cursor-pointer">
+                  <ChevronRight size={14} /> {topic.title}
+                </DialogTrigger>
+                <DialogContent className="my-10 w-screen bg-background overflow-y-auto">
+                  <DialogTitle className="text-xl font-semibold">{topic.title}</DialogTitle>
+                  <div className="grid gap-5">{topic.content}</div>
+                </DialogContent>
+              </Dialog>
+              {index < priceTopics.length - 1 && <Separator />}
+            </motion.li>
+          ))}
         </ul>
-            <p className="italic text-sm text-gray-500">
+
+        <p className="italic text-sm text-gray-500">
           Lembre-se: a Hostdoor está aqui para garantir que todo o processo seja seguro e justo para ambas as partes.
         </p>
       </div>

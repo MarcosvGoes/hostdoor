@@ -11,6 +11,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { ContactOwner } from "@/features/properties/components/ContactOwnerDrawer";
 import { Popover, PopoverContent, PopoverTrigger } from "@/shared/components/Shadcn-ui/popover";
 import SharePropertyButton from "@/features/properties/components/SharePropertyButton";
+import PropertyDetailsLoadingSkeleton from "./loading";
 
 interface Property {
   id: string
@@ -87,10 +88,10 @@ export default function PropertyDetails() {
 
 
 
-  if (!property) return <p>Carregando...</p>;
+  if (!property) return <PropertyDetailsLoadingSkeleton />
 
   return (
-    <div className="max-w-[90%] lg:max-w-[1200px] lg:px-10 mx-auto w-full mb-10">
+    <div className="max-w-[90%] lg:max-w-[1200px] lg:px-10 mx-auto w-full mb-10 mt-20">
 
       <div className="flex justify-between items-center py-5" id="breadcumb-pages">
         <Breadcrumb>

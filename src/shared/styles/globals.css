@@ -134,15 +134,20 @@ ul {
   list-style: none;
 }
 
-/* globals.css */
-html {
-  /* reserva o espaço da scrollbar para evitar layout shift */
-  scrollbar-gutter: stable;
+/* Estilo específico para selects abertos */
+[data-radix-select-content] {
+  z-index: 9999;
 }
 
-/* fallback para navegadores que não suportam scrollbar-gutter:
-   força o scroll bar sempre visível (mesmo que não tenha overflow) */
-body {
-  overflow-y: scroll;
+@keyframes slideDown {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
 }
 
+@keyframes slideUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+.animate-slideDown { animation: slideDown 0.3s ease-in-out forwards; }
+.animate-slideUp { animation: slideUp 0.3s ease-in-out forwards; }
