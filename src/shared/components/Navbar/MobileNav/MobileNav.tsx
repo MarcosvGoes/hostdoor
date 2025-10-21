@@ -16,7 +16,6 @@ import {
 } from "@/shared/components/Shadcn-ui/accordion";
 import { Button } from "@/shared/components/Shadcn-ui/button";
 import Image from "next/image";
-import { appDomain } from "@/utils/routes";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +48,7 @@ export default function MobileNav() {
     >
       <Link href="/" className="flex h-auto items-center gap-x-1 text-xl font-extrabold">
         <Image width={25} height={25} alt="logo hostdoor" src="/assets/logo/hostdoor-logo-light.png"/>
-        <span className="text-xl">HostDoor</span>
+        <span className="text-xl">Hostdoor</span>
       </Link>
 
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -89,7 +88,7 @@ export default function MobileNav() {
               </AccordionTrigger>
               <AccordionContent className="mx-1 -mt-2">
                 <Button asChild variant="link" className="block text-left w-full font-medium">
-                  <a href={appDomain} target="_blank" onClick={() => setIsOpen(false)}>
+                  <a href={process.env.NEXT_PUBLIC_URL} target="_blank" onClick={() => setIsOpen(false)}>
                     Cadastre seu imóvel
                   </a>
                 </Button>

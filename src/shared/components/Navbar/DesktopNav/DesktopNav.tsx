@@ -10,25 +10,24 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@/shared/components/Shadcn-ui/dropdown-menu";
-import { appDomain } from "@/utils/routes";
 
 export default function DesktopNav() {
   return (
-    <nav className="fixed mx-auto w-full h-16 px-10 flex items-center justify-between backdrop-blur-lg bg-background/50 shadow-[0_1px_5px_var(--foreground)] z-50">
+    <nav className="fixed mx-auto w-[800px] h-16 px-5 flex items-center justify-between backdrop-blur-lg bg-background/50 shadow-[0_1px_5px_var(--foreground)] z-50 rounded-full mt-5 left-0 right-0">
       <Link href="/" className="flex h-auto items-center gap-x-1 text-xl font-extrabold">
-        <Image width={25} height={25} alt="logo hostdoor" src="/assets/logo/hostdoor-logo-light.png"/>
-        <span className="text-xl">HostDoor</span>
+        <Image width={30} height={30} alt="logo hostdoor" src="/assets/logo/hostdoor-logo-light.png"/>
+        <span className="text-xl">Hostdoor</span>
       </Link>
 
       <div className="flex items-center gap-4">
 
         {/* Estou buscando um imóvel */}
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
             Alugar <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5">
-            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Alugue com a HostDoor</DropdownMenuLabel>
+          <DropdownMenuContent align="center" className="mt-2 w-72 rounded-sm p-5">
+            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Alugue com a Hostdoor</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
               <DropdownItem href="/catalog">Catálogo de imóveis</DropdownItem>
               <DropdownItem href="/guide/tenant-guide">Ajuda</DropdownItem>
@@ -37,14 +36,14 @@ export default function DesktopNav() {
         </DropdownMenu>
 
         {/* Estou anunciando um imóvel */}
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
             Anunciar <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5">
-            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Anuncie com a HostDoor</DropdownMenuLabel>
+          <DropdownMenuContent align="center" className="mt-2 w-72 rounded-sm p-5">
+            <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Anuncie com a Hostdoor</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
-              <DropdownItem external href={appDomain}>
+            <DropdownItem external href={"https://app.hostdoor.com.br"}>
                 Cadastre seu imóvel
               </DropdownItem>
               <DropdownItem href="/solutions">Soluções</DropdownItem>
@@ -54,12 +53,12 @@ export default function DesktopNav() {
         </DropdownMenu>
 
         {/* Guias */}
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
             Guias <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">
+          <DropdownMenuContent align="center" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">
             <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Dúvidas</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
               <DropdownItem href="/guide/tenant-guide">Guia do Inquilino</DropdownItem>
@@ -70,12 +69,12 @@ export default function DesktopNav() {
         </DropdownMenu>
 
         {/* Ajuda */}
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger className="text-sm cursor-pointer font-semibold flex items-center gap-1">
             Ajuda <ChevronDown className="w-4 h-4" />
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent align="start" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">
+          <DropdownMenuContent align="center" className="mt-2 w-72 rounded-sm p-5 overflow-hidden">
             <DropdownMenuLabel className="border-b font-semibold pb-2 text-lg">Dúvidas</DropdownMenuLabel>
             <div className="gap-1 grid mt-2">
               <DropdownItem href="/help/faq">Dúvidas frequentes</DropdownItem>

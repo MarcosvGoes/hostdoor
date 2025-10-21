@@ -133,3 +133,21 @@
 ul {
   list-style: none;
 }
+
+/* Estilo específico para selects abertos */
+[data-radix-select-content] {
+  z-index: 9999;
+}
+
+@keyframes slideDown {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+.animate-slideDown { animation: slideDown 0.3s ease-in-out forwards; }
+.animate-slideUp { animation: slideUp 0.3s ease-in-out forwards; }

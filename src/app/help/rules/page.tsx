@@ -1,15 +1,13 @@
 export default function Rules() {
     return (
-        <div className="max-w-[95%] md:max-w-[90%] lg:max-w-[1200px] mx-auto  mt-10">
-            <div className="pb-5 px-2 lg:px-5">
-                <h1 className="text-xl lg:text-2xl font-semibold text-blue-900">REGRAS DA LOCAÇÃO</h1>
+    <main className="max-w-[90%] mx-auto mt-28 mb-10 lg:mb-20 lg:mt-40 lg:max-w-[80%] space-y-5">
+                <h1 className="text-xl lg:text-2xl font-semibold text-blue-900">Regras da Locação</h1>
                 <p className="font-medium text-sm lg:text-base">
                     Este documento integra o Contrato de Locação assinado entre Locador e Inquilino e
                     detalha as regras do dia a dia do aluguel. As regras aplicáveis são vigentes à época da
                     contratação e não serão alteradas unilateralmente.
                 </p>
-            </div>
-            <div className="p-5 shadow-[0_3px_10px_var(--border)]">
+            <div className="p-5 shadow-[0_3px_10px_var(--border)] mb-5">
                 <h2 className="text-center text-lg lg:text-2xl font-semibold pb-4">Locação e Pagamentos</h2>
                 <div className="space-y-4">
                     <ol>
@@ -109,7 +107,7 @@ export default function Rules() {
                             </li>
                             <li>
                                 <strong>7.2 Atenção: </strong>
-                                O valor do caução poderá ser retido total ou parcialmente, conforme análise da situação e resultado da eventual disputa. Até que essa análise seja concluída, o caução permanecerá integralmente sob responsabilidade da HostDoor.
+                                O valor do caução poderá ser retido total ou parcialmente, conforme análise da situação e resultado da eventual disputa. Até que essa análise seja concluída, o caução permanecerá integralmente sob responsabilidade da Hostdoor.
                             </li>
                         </ol>
                     </ol>
@@ -117,7 +115,7 @@ export default function Rules() {
                     <ol>
                         <li>
                             <strong className="text-blue-700">8. Cobranças da Locação: </strong>
-                            O aluguel, IPTU e taxa de condomínio são cobrados pela HostDoor em uma única fatura. Caso o início ou término do contrato não coincida com a data de vencimento definida pelo locador, será realizada cobrança proporcional referente aos dias do período inicial e, se aplicável, do último mês, incluindo aluguel e condomínio.
+                            O aluguel, IPTU e taxa de condomínio são cobrados pela Hostdoor em uma única fatura. Caso o início ou término do contrato não coincida com a data de vencimento definida pelo locador, será realizada cobrança proporcional referente aos dias do período inicial e, se aplicável, do último mês, incluindo aluguel e condomínio.
                         </li>
                         <ol className="ml-3 pt-1">
                             <li>
@@ -126,7 +124,7 @@ export default function Rules() {
                             </li>
                             <li>
                                 <strong>8.2 Atenção: </strong>
-                                Pagamento via cartão de crédito ou débito dependerá da autorização do locador, que deve atualizar a forma de pagamento na plataforma HostDoor.
+                                Pagamento via cartão de crédito ou débito dependerá da autorização do locador, que deve atualizar a forma de pagamento na plataforma Hostdoor.
                             </li>
                             <li>
                                 <strong>8.3 Atenção: </strong>
@@ -138,12 +136,12 @@ export default function Rules() {
                     <ol>
                         <li>
                             <strong className="text-blue-700">9. IPTU: </strong>
-                            O Imposto Predial e Territorial Urbano (IPTU), incluindo eventuais cobranças de vagas de garagem ou depósitos vinculados ao imóvel, é de responsabilidade integral do inquilino. O valor anual será dividido em 12 parcelas mensais, incluídas na cobrança da locação. A HostDoor repassará os valores ao locador, que deverá quitá-los junto à Prefeitura e informar qualquer alteração.
+                            O Imposto Predial e Territorial Urbano (IPTU), incluindo eventuais cobranças de vagas de garagem ou depósitos vinculados ao imóvel, é de responsabilidade integral do inquilino. O valor anual será dividido em 12 parcelas mensais, incluídas na cobrança da locação. A Hostdoor repassará os valores ao locador, que deverá quitá-los junto à Prefeitura e informar qualquer alteração.
                         </li>
                         <ol className="ml-3 pt-1">
                             <li>
                                 <strong>9.1 Atualização de Valores: </strong>
-                                Caso o IPTU seja reajustado, o locador deve comunicar a HostDoor até o fim do mês seguinte à emissão do novo imposto anual. Nesse caso, o locador poderá cobrar do inquilino eventuais diferenças de forma retroativa diretamente pela plataforma da HostDoor. Se o locador atrasar a comunicação por mais de 3 meses, o inquilino passará a pagar apenas o valor atualizado dali em diante, sendo o locador responsável por arcar com eventuais diferenças superiores a esse período.
+                                Caso o IPTU seja reajustado, o locador deve comunicar a Hostdoor até o fim do mês seguinte à emissão do novo imposto anual. Nesse caso, o locador poderá cobrar do inquilino eventuais diferenças de forma retroativa diretamente pela plataforma da Hostdoor. Se o locador atrasar a comunicação por mais de 3 meses, o inquilino passará a pagar apenas o valor atualizado dali em diante, sendo o locador responsável por arcar com eventuais diferenças superiores a esse período.
                             </li>
                         </ol>
                     </ol>
@@ -164,7 +162,7 @@ export default function Rules() {
                             </li>
                             <li>
                                 <strong>10.3 Observação: </strong>
-                                Todas as cobranças são emitidas pela HostDoor em uma única fatura, sempre com referência ao mês de vencimento definido pelo locador.
+                                Todas as cobranças são emitidas pela Hostdoor em uma única fatura, sempre com referência ao mês de vencimento definido pelo locador.
                             </li>
                         </ol>
                     </ol>
@@ -243,7 +241,7 @@ export default function Rules() {
                         <ol className="ml-3 pt-1">
                             <li>
                                 <strong>16.1 Atualização de Valores: </strong>
-                                O valor do condomínio pode variar de acordo com despesas do edifício ou decisões dos condôminos, não estando sob controle do locador nem da HostDoor. Assim, eventuais aumentos definidos pela administradora serão de responsabilidade integral do inquilino.
+                                O valor do condomínio pode variar de acordo com despesas do edifício ou decisões dos condôminos, não estando sob controle do locador nem da Hostdoor. Assim, eventuais aumentos definidos pela administradora serão de responsabilidade integral do inquilino.
                             </li>
                         </ol>
                     </ol>
@@ -560,14 +558,14 @@ export default function Rules() {
                     <ol>
                         <li>
                             <strong className="text-blue-700">43. Plataforma: </strong>
-                            É a Plataforma Tecnológica disponibilizada pela HostDoor, através do site www.hostdoor.com.br e www.app.hostdoor.com.br, telefone ou dos apps.
+                            É a Plataforma Tecnológica disponibilizada pela Hostdoor, através do site www.hostdoor.com.br e www.app.hostdoor.com.br, telefone ou dos apps.
                         </li>
                     </ol>
 
                 </div>
                 <p className="mt-3 text-xs">
                     Central de Atendimento da Hostdoor, disponível através da Central de Ajuda no link <a href="https://www.hostdoor.com.br/help/support-center" target="_blank" className="text-blue-600 underline">https://www.hostdoor.com.br/help/support-center</a> ou do <a
-                        href="https://wa.me/+5527988567724"
+                        href="https://wa.me/+5527992023805"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 underline"
@@ -576,6 +574,6 @@ export default function Rules() {
                     </a>.
                 </p>
             </div>
-        </div >
+        </main>
     );
 }

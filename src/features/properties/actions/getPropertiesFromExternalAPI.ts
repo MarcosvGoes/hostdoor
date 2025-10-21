@@ -1,10 +1,8 @@
-import { revalidate } from "@/app/api/get-properties/route";
 import { Property } from "@/shared/types/Property";
-import { appDomain, localhostAppDomain } from "@/utils/routes";
+import { revalidate } from "@/utils/constants";
 
 export async function getPropertiesFromExternalAPI(): Promise<Property[]> {
-  const res = await fetch(
-    `${process.env.NODE_ENV === "development" ? `${localhostAppDomain}/api/properties` : `${appDomain}`}/api/properties`,
+    const res = await fetch(`${process.env.APP_NEXT_PUBLIC_URL}/api/properties?x-vercel-protection-bypass=${process.env.APP_VERCEL_AUTOMATION_BYPASS_SECRET}`,    
     {
       headers: {
         Authorization: `Bearer ${process.env.API_KEY_LIST_PROPERTIES}`,

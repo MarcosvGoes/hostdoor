@@ -6,6 +6,7 @@ export interface Property {
   bathrooms: number;
   parkingSpaces: number;
   rentPrice: number;
+  propertyNumber: string;
   type: string;
   available: boolean;
   condominium: number;

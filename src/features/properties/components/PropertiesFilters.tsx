@@ -94,8 +94,9 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
       <div
         className={`lg:hidden fixed z-20 inset-x-0 w-full max-w-[90%] mx-auto flex flex-col
     transition-all duration-300 ease-in-out
-    ${hidden ? "top-2" : "top-17"}`}
-      >        <Card className="w-full px-4 py-2 m-0 grid gap-2">
+    ${hidden ? "top-2" : "top-20"}`}
+      >        
+      <Card className="w-full px-4 py-2 m-0 grid gap-2">
           <div className="relative">
             <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={14} />
             <Input
@@ -175,14 +176,14 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
               </Select>
 
               {/* Área */}
-              <DropdownMenu>
+        <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="rounded-full whitespace-nowrap px-4">
-                    Área
+                    Área m2
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="p-2 grid gap-2">
-                  <span className="text-xs font-semibold">Área</span>
+                  <span className="text-xs font-semibold">Área m2</span>
                   <div className="flex gap-2 items-center">
                     <Input
                       type="number"
@@ -204,10 +205,10 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
               </DropdownMenu>
 
               {/* Aluguel */}
-              <DropdownMenu>
+        <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="rounded-full whitespace-nowrap px-4">
-                    Aluguel
+                    Aluguel R$
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="p-2 grid gap-2">
@@ -238,7 +239,7 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
 
 
       {/* Desktop Filters */}
-      <div className="hidden overflow-x-auto scrollbar-none lg:flex gap-4 items-center top-[65px] bg-background py-4 fixed z-20 w-screen px-10 border-b">
+      <div className="hidden overflow-x-auto scrollbar-none lg:flex gap-4 items-center bg-background py-4 pt-[100px] fixed z-20 w-screen px-10 border-b">
         {/* Input texto para city, neighborhood, state */}
         <div className="relative">
           <MapPinned className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
@@ -328,15 +329,15 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
           </SelectContent>
         </Select>
 
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="rounded-full w-20 py-5 justify-center">
-              Área
+            <Button variant="outline" className="rounded-full w-24 py-5 justify-center">
+              Área m2
             </Button>
           </DropdownMenuTrigger>
 
           <DropdownMenuContent align="start" className="grid p-6">
-            <h1 className="mb-4">Área</h1>
+            <h1 className="mb-4">Área m2</h1>
             <div className="w-80 rounded-xl space-x-2 flex">
               <div>
                 <label className="text-sm text-muted-foreground">Mínimo</label>
@@ -364,10 +365,10 @@ export default function PropertiesFilters({ onFilterChange }: { onFilterChange: 
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="rounded-full w-24 py-5 justify-center">
-              Aluguel
+            <Button variant="outline" className="rounded-full w-28 py-5 justify-center">
+              Aluguel R$
             </Button>
           </DropdownMenuTrigger>
 

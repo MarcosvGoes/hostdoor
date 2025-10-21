@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Banknote,
   FilePenLine,
@@ -7,116 +9,88 @@ import {
   Globe,
   BellRing,
   Headset,
+  BarChart3,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Solutions() {
-  return (
-    <main className="py-10 max-w-[90%] mx-auto">
-      <section className="gap-y-5 grid">
-        <div>
-          <h1 className="font-bold text-darkText text-2xl">Soluções completas para seu imóvel</h1>
-          <p className="text-[10px]">Simplifique e profissionalize a gestão da sua locação</p>
-        </div>
+  const items = [
+    {
+      icon: <Banknote size={22} />,
+      title: "Intermediação de Pagamentos",
+      text: "Receba seus aluguéis com total segurança. A Hostdoor gerencia cobranças, repasses automáticos e sistema antifraude para reduzir a inadimplência e aumentar sua tranquilidade.",
+    },
+    {
+      icon: <ShieldCheck size={22} />,
+      title: "Caução Seguro",
+      text: "Proteção e transparência garantidas. O valor da caução é armazenado com segurança e liberado apenas após vistoria aprovada, sem complicações.",
+    },
+    {
+      icon: <FilePenLine size={22} />,
+      title: "Contrato com Assinatura Digital",
+      text: "Crie contratos personalizados e juridicamente válidos. Todas as partes assinam online e o documento é armazenado com segurança na nuvem.",
+    },
+    {
+      icon: <Wallet size={22} />,
+      title: "Múltiplas Formas de Pagamento",
+      text: "Pix, boleto ou cartão — você escolhe. Dê mais flexibilidade ao inquilino e receba seus aluguéis sempre no prazo.",
+    },
+    {
+      icon: <Globe size={22} />,
+      title: "Vitrine Digital do Imóvel",
+      text: "Apresente seu imóvel de forma profissional com uma página exclusiva e compartilhável. Alcance mais interessados de forma simples e eficiente.",
+    },
+    {
+      icon: <Home size={22} />,
+      title: "Gestão 100% Online",
+      text: "Centralize tudo: contratos, pagamentos, cauções e comunicações em um único painel. Acesse de qualquer lugar, a qualquer hora.",
+    },
+    {
+      icon: <BellRing size={22} />,
+      title: "Notificações Automáticas",
+      text: "A Hostdoor envia lembretes e avisos automáticos para todos os envolvidos — sem precisar se preocupar com prazos ou esquecimentos.",
+    },
+    {
+      icon: <Headset size={22} />,
+      title: "Suporte Humanizado",
+      text: "Conte com nossa equipe para resolver dúvidas e imprevistos com agilidade. Atendimento humano, direto e eficiente sempre que precisar.",
+    },
+    {
+      icon: <BarChart3 size={22} />,
+      title: "Relatórios Inteligentes e Insights",
+      text: "Acompanhe o desempenho dos seus imóveis com relatórios automáticos. Veja valores recebidos, taxas aplicadas e métricas de rentabilidade para tomar decisões mais estratégicas.",
+    },
+  ];
 
-        <div className="text-sm font-semibold text-darkText grid gap-y-2">
-          <p>
-            Com a HostDoor, você tem a tranquilidade de uma gestão 100% digital: cuidamos da cobrança,
-            repasse, contratos, caução e muito mais. Segurança, agilidade e praticidade em um só lugar.
-          </p>
-        </div>
+  return (
+    <main className="mt-28 mb-10 lg:mb-20 lg:mt-40 max-w-7xl mx-auto px-6">
+      <section className="text-center mb-12">
+        <h1 className="font-bold text-3xl text-darkText mb-3">
+          Soluções completas para seu imóvel
+        </h1>
+        <p className="text-gray-600 text-base">
+          Simplifique e profissionalize a gestão da sua locação com tecnologia, segurança e agilidade.
+        </p>
       </section>
 
-      <div className="mt-10">
-        <ul className="grid lg:grid-cols-2 xl:grid-cols-4 gap-3 lg:gap-8 text-darkText">
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <Banknote />
-              <h2 className="font-bold">Intermediação de Pagamentos</h2>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+        {items.map((item, i) => (
+          <motion.li
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="bg-background-white rounded-xl p-6 shadow-[0_3px_10px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.25)] transition-all duration-300 hover:-translate-y-1"
+          >
+            <div className="flex items-center gap-x-2 mb-3 text-primary">
+              {item.icon}
+              <h2 className="font-semibold text-lg text-darkText">{item.title}</h2>
             </div>
-            <p className="text-sm">
-              Receba seus aluguéis sempre em dia com repasses automáticos, aviso de cobrança e sistema
-              antifraude. Menos inadimplência, mais tranquilidade para você.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <ShieldCheck />
-              <h2 className="font-bold">Caução Seguro</h2>
-            </div>
-            <p className="text-sm">
-              O valor da caução é guardado com segurança e só liberado após vistoria. Mais proteção
-              para o proprietário e transparência para o inquilino.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <FilePenLine />
-              <h2 className="font-bold">Contrato com Assinatura Digital</h2>
-            </div>
-            <p className="text-sm">
-              Gere contratos personalizados com validade jurídica, assine online com todas as partes
-              envolvidas e armazene tudo na nuvem. Rápido, seguro e sem papelada.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <Wallet />
-              <h2 className="font-bold">Diversas Formas de Pagamento</h2>
-            </div>
-            <p className="text-sm">
-              Pix, boleto e cartão de crédito. Ofereça flexibilidade para o inquilino e aumente suas
-              chances de receber no prazo, sem complicações.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <Globe />
-              <h2 className="font-bold">Vitrine Digital do Imóvel</h2>
-            </div>
-            <p className="text-sm">
-              Crie uma página exclusiva para o seu imóvel e compartilhe com interessados. Atraia
-              potenciais inquilinos de forma simples e eficiente.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <Home />
-              <h2 className="font-bold">Gestão 100% Online</h2>
-            </div>
-            <p className="text-sm">
-              Acesse contratos, pagamentos, status de caução e muito mais direto do seu painel. Tudo
-              centralizado em um só lugar, acessível de qualquer dispositivo.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <BellRing />
-              <h2 className="font-bold">Notificações Automáticas</h2>
-            </div>
-            <p className="text-sm">
-              Lembretes e avisos são enviados automaticamente para inquilinos e testemunhas, agilizando
-              assinaturas, pagamentos e etapas do contrato.
-            </p>
-          </li>
-
-          <li className="grid bg-background-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 rounded-sm gap-y-2">
-            <div className="flex items-center gap-x-2">
-              <Headset />
-              <h2 className="font-bold">Suporte Humanizado</h2>
-            </div>
-            <p className="text-sm">
-              Nossa equipe está disponível para te auxiliar em cada etapa do processo. Atendimento
-              humano, direto e eficiente sempre que você precisar.
-            </p>
-          </li>
-        </ul>
-      </div>
+            <p className="text-sm text-gray-700 leading-relaxed">{item.text}</p>
+          </motion.li>
+        ))}
+      </ul>
     </main>
   );
 }

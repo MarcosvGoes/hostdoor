@@ -25,12 +25,12 @@ function PropertiesListComponent({ properties }: Props) {
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-[1500px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:max-w-[1400px] lg:px-5 gap-5 max-w-[90%] mx-auto">
         {properties.map((property) => (
           <Card
             key={property.id}
             className="flex rounded-sm cursor-pointer flex-col p-0 gap-0"
-            onClick={() => router.push(`/catalog/${property.id}`)}
+            onClick={() => router.push(`/catalog/${property.propertyNumber}`)}
           >
             <div className="relative w-full aspect-video">
               <Carousel className="h-full w-full">
@@ -38,12 +38,12 @@ function PropertiesListComponent({ properties }: Props) {
                   {property.images.length > 0 ? (
                     property.images.map((src, idx) => (
                       <CarouselItem key={idx} className="h-full w-full px-0">
-                        <CardContent className="relative h-60 lg:h-80 w-100vw p-0">
+                        <CardContent className="relative h-80 lg:h-80 w-100vw p-0">
                           <Image
                             src={src}
                             alt={`Imagem ${idx + 1} de ${property.title}`}
                             fill
-                            className="object-cover rounded-t-sm"
+                            className="object-cover rounded-t-sm h-fit"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             priority={idx === 0}
                           />

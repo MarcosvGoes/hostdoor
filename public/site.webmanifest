@@ -1,6 +1,6 @@
 {
-  "name": "HostDoor",
-  "short_name": "HD",
+  "name": "Hostdoor",
+  "short_name": "hostdoor",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

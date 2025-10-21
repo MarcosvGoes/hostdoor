@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function GuideLobby() {
     return (
         <main className="max-w-4xl mx-auto py-10 px-4 space-y-10">
-            <h1 className="text-3xl font-bold">Guias da HostDoor</h1>
+            <h1 className="text-3xl font-bold">Guias da Hostdoor</h1>
             <p className="text-muted-foreground text-base">
                 Aqui você encontra todos os nossos guias para tornar o processo de locação mais simples, seguro e justo para todos.
             </p>
